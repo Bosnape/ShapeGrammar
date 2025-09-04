@@ -192,7 +192,7 @@ class ShapeGrammarWebsite {
   }
 
   handleLargeDownload() {
-    const downloadUrl = "./shape_grammar_gui.zip"
+    const downloadUrl = "https://github.com/Bosnape/ShapeGrammar/raw/main/shape_grammar_gui.zip"
     const btn = document.getElementById("large-download-btn")
     const originalText = btn.textContent
 
@@ -202,12 +202,13 @@ class ShapeGrammarWebsite {
     btn.disabled = true
 
     // Show progress notification
-    this.showDownloadNotification("Iniciando descarga del archivo principal (427 MB)...")
+    this.showDownloadNotification("Iniciando descarga...")
 
     // Create download link
     const link = document.createElement("a")
     link.href = downloadUrl
     link.download = "shape_grammar_gui.zip"
+    link.target = "_blank"
     link.style.display = "none"
     document.body.appendChild(link)
 
@@ -317,15 +318,16 @@ class ShapeGrammarWebsite {
   }
 
   async checkFileAvailability() {
+    const GITHUB_RAW_BASE = 'https://github.com/Bosnape/ShapeGrammar/raw/main/'
     const files = [
-      { name: "blender_addon.zip", selector: '[data-download="blender_addon"]' },
-      { name: "examples.zip", selector: '[data-download="examples"]' },
+      { name: "blender_addon.zip", selector: 'a[href*="blender_addon.zip"]' },
+      { name: "examples.zip", selector: 'a[href*="examples.zip"]' },
       { name: "shape_grammar_gui.zip", selector: "#large-download-btn" },
     ]
 
     for (const file of files) {
       try {
-        const response = await fetch(`./${file.name}`, { method: "HEAD" })
+        const response = await fetch(`${GITHUB_RAW_BASE}${file.name}`, { method: "HEAD" })
         const button = document.querySelector(file.selector)
 
         if (!response.ok && button) {
@@ -374,6 +376,26 @@ class ShapeGrammarWebsite {
         element.textContent = totalDownloads.toLocaleString()
       }
     })
+  }
+
+  // Nueva función para descargas directas
+  downloadFileDirect(filename, displayName) {
+    const GITHUB_RAW_BASE = 'https://github.com/Bosnape/ShapeGrammar/raw/main/'
+    const url = GITHUB_RAW_BASE + filename
+    
+    // Crear elemento de descarga temporal
+    const link = document.createElement('a')
+    link.href = url
+    link.download = displayName || filename
+    link.target = '_blank'
+    
+    // Forzar descarga
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    
+    // Track download
+    this.trackDownload(filename.replace('.zip', ''))
   }
 }
 
