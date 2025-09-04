@@ -1,0 +1,661 @@
+/* Complete redesign with minimal concept 1 - green professional colors */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Green professional color palette from concept 1 */
+  --primary-green: #15803d;
+  --primary-green-dark: #166534;
+  --primary-green-light: #22c55e;
+  --accent-lime: #84cc16;
+  --accent-lime-light: #a3e635;
+
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-white: #ffffff;
+
+  --bg-white: #ffffff;
+  --bg-gray-50: #f9fafb;
+  --bg-gray-100: #f3f4f6;
+  --bg-gray-900: #111827;
+
+  --border-gray-200: #e5e7eb;
+  --border-gray-300: #d1d5db;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Clean minimal body styling */
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-gray-50);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* New top navigation bar styles matching the provided design */
+.top-navbar {
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-gray-200);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 0;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  padding: 0.5rem 0;
+  font-family: var(--font-family);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--primary-green);
+}
+
+.nav-link.active {
+  color: var(--primary-green);
+}
+
+/* Enhanced hero section with conditional display */
+.hero-section {
+  background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-gray-50) 100%);
+  /* Optimized padding and margin for better visual balance */
+  padding: 4rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-gray-200);
+  transition: all 0.3s ease;
+  margin-top: 80px;
+}
+
+.hero-section.hidden {
+  display: none;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-cta-btn {
+  background-color: var(--primary-green);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-family);
+}
+
+.hero-cta-btn:hover {
+  background-color: var(--primary-green-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Sticky navigation with minimal design */
+.nav-container {
+  display: none;
+}
+
+/* Minimal header with clean typography */
+.header {
+  display: none;
+}
+
+/* Clean main content area */
+.main-content {
+  background-color: var(--bg-gray-50);
+  min-height: 60vh;
+  /* Optimized padding-top for perfect navbar clearance */
+  padding-top: 100px;
+}
+
+.tab-content {
+  display: block;
+  /* Added minimal top padding for better section spacing */
+  padding: 1rem 0 3rem 0;
+}
+
+.tab-content:not(.active) {
+  display: none;
+}
+
+/* Minimal stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.stat-card {
+  background-color: var(--bg-gray-50);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--primary-green);
+  transform: translateY(-1px);
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Improved download cards with better visual hierarchy */
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.download-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* Restored proper card styling that was accidentally modified */
+}
+
+.download-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-lime) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.download-card:hover::before {
+  opacity: 1;
+}
+
+.download-card:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 25px rgba(21, 128, 61, 0.1);
+  transform: translateY(-4px);
+}
+
+.download-card.featured {
+  border-color: var(--primary-green);
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  box-shadow: 0 4px 15px rgba(21, 128, 61, 0.1);
+}
+
+.download-card.featured::before {
+  opacity: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  flex: 1;
+}
+
+.file-size {
+  font-size: 0.875rem;
+  color: var(--primary-green);
+  font-weight: 600;
+  background-color: var(--bg-gray-100);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.file-info {
+  background-color: var(--bg-gray-50);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filename {
+  display: block;
+  font-family: "SF Mono", "Monaco", "Cascadia Code", monospace;
+  font-size: 0.875rem;
+  color: var(--primary-green);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.compatibility {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Minimal download buttons */
+.download-btn {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background-color: var(--primary-green);
+  color: var(--text-white);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-family);
+}
+
+.download-btn:hover {
+  background-color: var(--primary-green-dark);
+  transform: translateY(-1px);
+}
+
+.download-btn.primary {
+  background-color: var(--primary-green);
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.download-btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.download-btn.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--text-white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Simplified large file notice */
+.large-file-notice {
+  background-color: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.large-file-notice p {
+  font-size: 0.875rem;
+  color: #92400e;
+  margin: 0;
+}
+
+/* Enhanced info section with system requirements */
+.info-section {
+  background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-gray-50) 100%);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  /* Optimized margins for better section flow */
+  margin: 2rem 0 0 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.info-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-section h3::before {
+  content: "⚡";
+  font-size: 1.25rem;
+}
+
+.info-section ol {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-section li {
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.info-section li strong {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+/* Clean code section */
+.code-section {
+  margin: 3rem 0;
+}
+
+.code-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.code-block {
+  background-color: var(--bg-gray-900);
+  color: #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  font-family: "SF Mono", "Monaco", "Cascadia Code", monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+/* Minimal footer */
+.footer {
+  background-color: var(--bg-gray-100);
+  border-top: 1px solid var(--border-gray-200);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Clean feature grid for documentation, examples, and features sections */
+.feature-grid {
+  display: grid;
+  /* Improved responsive grid with better minimum width */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-xl);
+  /* Optimized padding for better content balance */
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-white) 0%, #fafbfc 100%);
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-lime) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 25px rgba(21, 128, 61, 0.1);
+  transform: translateY(-4px);
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  /* Added subtle color accent for better visual hierarchy */
+  color: var(--primary-green-dark);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  /* Improved text size for better readability */
+  font-size: 0.95rem;
+}
+
+/* Specific styling for content headers */
+.content-header {
+  /* Reduced bottom margin and removed top padding for tighter spacing */
+  margin-bottom: 1.5rem;
+  padding-top: 0;
+}
+
+.content-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.content-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-section {
+    /* Optimized mobile padding and margin */
+    padding: 3rem 0;
+    margin-top: 80px;
+  }
+
+  .main-content {
+    /* Consistent mobile padding-top */
+    padding-top: 90px;
+  }
+
+  /* Improved mobile grid layout */
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .navbar-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .navbar-menu {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .info-section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .file-size {
+    align-self: flex-start;
+  }
+
+  .navbar-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-section {
+    /* Further optimized small mobile spacing */
+    padding: 2.5rem 0;
+    margin-top: 80px;
+  }
+
+  .main-content {
+    /* Consistent small mobile padding */
+    padding-top: 85px;
+  }
+}
+
+/* Accessibility and focus styles */
+.nav-link:focus,
+.download-btn:focus,
+.hero-cta-btn:focus {
+  outline: 3px solid var(--accent-lime);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Added smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
