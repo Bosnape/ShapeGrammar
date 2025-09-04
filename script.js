@@ -48,19 +48,23 @@ class ShapeGrammarWebsite {
       button.addEventListener("click", (e) => this.handleDownload(e))
     })
 
-    // Large file download
-    const largeDownloadBtn = document.getElementById("large-download-btn")
-    if (largeDownloadBtn) {
-      largeDownloadBtn.addEventListener("click", () => this.handleLargeDownload())
-    }
-
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", (e) => this.handleSmoothScroll(e))
     })
+  }
 
-    // Keyboard navigation
-    document.addEventListener("keydown", (e) => this.handleKeyboardNavigation(e))
+  handleSmoothScroll(e) {
+    e.preventDefault()
+    const target = e.currentTarget.getAttribute('href')
+    const targetElement = document.querySelector(target)
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
   }
 
   handleNavLinkClick(e) {
@@ -191,46 +195,6 @@ class ShapeGrammarWebsite {
     }, 1200)
   }
 
-  handleLargeDownload() {
-    const downloadUrl = "https://github.com/Bosnape/ShapeGrammar/raw/main/shape_grammar_gui.zip"
-    const btn = document.getElementById("large-download-btn")
-    const originalText = btn.textContent
-
-    // Show enhanced loading state
-    btn.classList.add("loading")
-    btn.textContent = "Preparando descarga..."
-    btn.disabled = true
-
-    // Show progress notification
-    this.showDownloadNotification("Iniciando descarga...")
-
-    // Create download link
-    const link = document.createElement("a")
-    link.href = downloadUrl
-    link.download = "shape_grammar_gui.zip"
-    link.target = "_blank"
-    link.style.display = "none"
-    document.body.appendChild(link)
-
-    // Trigger download
-    setTimeout(() => {
-      link.click()
-      document.body.removeChild(link)
-
-      // Update button state
-      btn.textContent = "✓ Descarga iniciada"
-      btn.style.backgroundColor = "var(--primary-green-light)"
-
-      setTimeout(() => {
-        btn.classList.remove("loading")
-        btn.textContent = originalText
-        btn.style.backgroundColor = ""
-        btn.disabled = false
-        this.trackDownload("shape_grammar_gui_large")
-      }, 3000)
-    }, 1000)
-  }
-
   showDownloadNotification(message, type = "info") {
     const notification = document.createElement("div")
     notification.textContent = message
@@ -322,7 +286,7 @@ class ShapeGrammarWebsite {
     const files = [
       { name: "blender_addon.zip", selector: 'a[href*="blender_addon.zip"]' },
       { name: "examples.zip", selector: 'a[href*="examples.zip"]' },
-      { name: "shape_grammar_gui.zip", selector: "#large-download-btn" },
+      { name: "shape_grammar_gui.zip", selector: 'a[href*="shape_grammar_gui.zip"]' },
     ]
 
     for (const file of files) {
