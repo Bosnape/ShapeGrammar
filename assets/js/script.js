@@ -1,11 +1,10 @@
 /**
  * Shape Grammar Tools Website
- * Professional JavaScript for enhanced user experience
+ * Simplified JavaScript for multi-page navigation
  */
 
 class ShapeGrammarWebsite {
   constructor() {
-    this.currentTab = "downloads"
     this.downloadStats = {
       blender_addon: 0,
       examples: 0,
@@ -20,22 +19,11 @@ class ShapeGrammarWebsite {
     this.setupScrollAnimations()
     this.checkFileAvailability()
     this.loadDownloadStats()
-    this.setupHeroVisibility()
+    this.setActiveNavLink()
+    this.setupCopyButtons()
   }
 
   setupEventListeners() {
-    // Top navbar navigation
-    const navLinks = document.querySelectorAll(".nav-link")
-    navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => this.handleNavLinkClick(e))
-    })
-
-    // Tab navigation (if present)
-    const navTabs = document.querySelectorAll(".nav-tab")
-    navTabs.forEach((tab) => {
-      tab.addEventListener("click", (e) => this.handleTabClick(e))
-    })
-
     // Hero CTA button functionality
     const heroCTABtn = document.getElementById("hero-download-btn")
     if (heroCTABtn) {
@@ -43,7 +31,7 @@ class ShapeGrammarWebsite {
     }
 
     // Download buttons
-    const downloadButtons = document.querySelectorAll("[data-download]")
+    const downloadButtons = document.querySelectorAll(".download-btn")
     downloadButtons.forEach((button) => {
       button.addEventListener("click", (e) => this.handleDownload(e))
     })
@@ -54,145 +42,57 @@ class ShapeGrammarWebsite {
     })
   }
 
-  handleSmoothScroll(e) {
-    e.preventDefault()
-    const target = e.currentTarget.getAttribute('href')
-    const targetElement = document.querySelector(target)
-    
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  }
-
-  handleNavLinkClick(e) {
-    e.preventDefault()
-    const tabName = e.currentTarget.dataset.tab
-
-    // Update active state in navbar
+  setActiveNavLink() {
+    // Set active nav link based on current page
+    const currentPage = window.location.pathname.split("/").pop() || "index.html"
     const navLinks = document.querySelectorAll(".nav-link")
+
     navLinks.forEach((link) => {
       link.classList.remove("active")
-    })
-    e.currentTarget.classList.add("active")
-
-    // Show corresponding tab content
-    this.showTab(tabName)
-
-    // Control hero section visibility - only show for downloads tab
-    this.toggleHeroSection(tabName === "downloads")
-
-    if (tabName !== "downloads") {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    }
-  }
-
-  setupHeroVisibility() {
-    // Initially show hero only for downloads tab
-    this.toggleHeroSection(this.currentTab === "downloads")
-  }
-
-  toggleHeroSection(show) {
-    const heroSection = document.getElementById("hero-section")
-    if (heroSection) {
-      if (show) {
-        heroSection.classList.remove("hidden")
-        heroSection.style.display = "block"
-      } else {
-        heroSection.classList.add("hidden")
-        heroSection.style.display = "none"
-      }
-    }
-  }
-
-  handleHeroCTA() {
-    // Scroll to downloads section
-    const downloadsSection = document.getElementById("downloads")
-    if (downloadsSection) {
-      downloadsSection.scrollIntoView({ behavior: "smooth" })
-    }
-
-    // Ensure downloads tab is active
-    this.showTab("downloads")
-
-    // Update navbar active state
-    const navLinks = document.querySelectorAll(".nav-link")
-    navLinks.forEach((link) => {
-      link.classList.remove("active")
-      if (link.dataset.tab === "downloads") {
+      const linkHref = link.getAttribute("href")
+      if (
+        linkHref === currentPage ||
+        (currentPage === "" && linkHref === "index.html") ||
+        (currentPage === "index.html" && linkHref === "index.html")
+      ) {
         link.classList.add("active")
       }
     })
   }
 
-  handleTabClick(e) {
+  handleSmoothScroll(e) {
     e.preventDefault()
-    const tabName = e.currentTarget.dataset.tab
-    this.showTab(tabName)
+    const target = e.currentTarget.getAttribute("href")
+    const targetElement = document.querySelector(target)
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
   }
 
-  showTab(tabName) {
-    // Hide all tabs
-    const tabs = document.querySelectorAll(".tab-content")
-    tabs.forEach((tab) => {
-      tab.classList.remove("active")
-      tab.setAttribute("aria-hidden", "true")
-    })
-
-    // Remove active from nav buttons
-    const navTabs = document.querySelectorAll(".nav-tab")
-    navTabs.forEach((nav) => {
-      nav.classList.remove("active")
-      nav.setAttribute("aria-selected", "false")
-    })
-
-    // Show selected tab
-    const targetTab = document.getElementById(tabName)
-    const targetNav = document.querySelector(`[data-tab="${tabName}"]`)
-
-    if (targetTab && targetNav) {
-      targetTab.classList.add("active")
-      targetTab.setAttribute("aria-hidden", "false")
-      targetNav.classList.add("active")
-      targetNav.setAttribute("aria-selected", "true")
-
-      this.currentTab = tabName
-
-      // Control hero section visibility
-      this.toggleHeroSection(tabName === "downloads")
-
-      // Update URL without page reload
-      if (history.pushState) {
-        history.pushState(null, null, `#${tabName}`)
-      }
+  handleHeroCTA() {
+    // Scroll to downloads section if on index page
+    const downloadsSection = document.getElementById("downloads")
+    if (downloadsSection) {
+      downloadsSection.scrollIntoView({ behavior: "smooth" })
+    } else {
+      // Navigate to index page if not there
+      window.location.href = "index.html#downloads"
     }
   }
 
   handleDownload(e) {
-    const downloadType = e.currentTarget.dataset.download
-    this.trackDownload(downloadType)
-
-    // Add enhanced visual feedback
     const button = e.currentTarget
-    const originalText = button.textContent
+    const downloadUrl = button.getAttribute("href")
+    const filename = downloadUrl.split("/").pop()
 
-    button.classList.add("loading")
-    button.textContent = "Descargando..."
-    button.disabled = true
+    this.trackDownload(filename.replace(".zip", ""))
 
-    setTimeout(() => {
-      button.classList.remove("loading")
-      button.textContent = "✓ Descargado"
-      button.style.backgroundColor = "var(--primary-green-light)"
-
-      setTimeout(() => {
-        button.textContent = originalText
-        button.style.backgroundColor = ""
-        button.disabled = false
-      }, 2000)
-    }, 1200)
+    // No visual feedback animation - just track the download
+    // Don't prevent default - let the download happen naturally
   }
 
   showDownloadNotification(message, type = "info") {
@@ -252,11 +152,17 @@ class ShapeGrammarWebsite {
     }, observerOptions)
 
     // Observe cards and hero content for animation
-    const animatedElements = document.querySelectorAll(".download-card, .feature-card, .stat-card, .hero-content")
+    const animatedElements = document.querySelectorAll(`
+      .download-card, .feature-card, .stat-card, .hero-content,
+      .intro-card, .reference-card, .parametric-card, .transformation-card,
+      .rule-card, .step-card, .case-study, .tip-card, .concept-card,
+      .selection-card, .config-card, .workflow-step, .capability-card
+    `)
+
     animatedElements.forEach((element, index) => {
       element.style.opacity = "0"
       element.style.transform = "translateY(20px)"
-      element.style.transition = `opacity 0.4s ease ${index * 0.05}s, transform 0.4s ease ${index * 0.05}s`
+      element.style.transition = `opacity 0.3s ease ${index * 0.01}s, transform 0.3s ease ${index * 0.01}s`
       observer.observe(element)
     })
   }
@@ -268,7 +174,7 @@ class ShapeGrammarWebsite {
     }
 
     // Analytics tracking (can be integrated with Google Analytics, etc.)
-    const gtag = window.gtag // Declare the variable before using it
+    const gtag = window.gtag
     if (typeof gtag !== "undefined") {
       gtag("event", "download", {
         event_category: "file_download",
@@ -278,11 +184,11 @@ class ShapeGrammarWebsite {
     }
 
     // Console log for debugging
-    console.log(`[v0] Download tracked: ${filename}`)
+    console.log(`[ShapeGrammar] Download tracked: ${filename}`)
   }
 
   async checkFileAvailability() {
-    const GITHUB_RAW_BASE = 'https://github.com/Bosnape/ShapeGrammar/raw/main/'
+    const GITHUB_RAW_BASE = "https://github.com/Bosnape/ShapeGrammar/raw/main/"
     const files = [
       { name: "blender_addon.zip", selector: 'a[href*="blender_addon.zip"]' },
       { name: "examples.zip", selector: 'a[href*="examples.zip"]' },
@@ -317,7 +223,7 @@ class ShapeGrammarWebsite {
   }
 
   loadDownloadStats() {
-    // Load stats from localStorage or API
+    // Load stats from localStorage
     const savedStats = localStorage.getItem("shapeGrammarDownloadStats")
     if (savedStats) {
       this.downloadStats = { ...this.downloadStats, ...JSON.parse(savedStats) }
@@ -342,24 +248,94 @@ class ShapeGrammarWebsite {
     })
   }
 
-  // Nueva función para descargas directas
-  downloadFileDirect(filename, displayName) {
-    const GITHUB_RAW_BASE = 'https://github.com/Bosnape/ShapeGrammar/raw/main/'
-    const url = GITHUB_RAW_BASE + filename
+  setupCopyButtons() {
+    // Add copy buttons to all code blocks
+    const codeBlocks = document.querySelectorAll('.code-block, .mini-code')
     
-    // Crear elemento de descarga temporal
-    const link = document.createElement('a')
-    link.href = url
-    link.download = displayName || filename
-    link.target = '_blank'
+    codeBlocks.forEach(block => {
+      // Skip if already has a copy button
+      if (block.querySelector('.copy-btn')) return
+      
+      const copyBtn = document.createElement('button')
+      copyBtn.className = 'copy-btn'
+      copyBtn.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      `
+      copyBtn.title = 'Copiar código'
+      
+      copyBtn.addEventListener('click', () => this.copyCodeToClipboard(block, copyBtn))
+      
+      block.appendChild(copyBtn)
+    })
+  }
+
+  async copyCodeToClipboard(codeBlock, button) {
+    try {
+      // Get the text content of the code block
+      let textToCopy = codeBlock.textContent || codeBlock.innerText
+      
+      // Remove the copy button text if it got included
+      textToCopy = textToCopy.replace(/Copiar código/g, '').trim()
+      
+      // Use the modern clipboard API if available
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textToCopy)
+      } else {
+        // Fallback for older browsers
+        this.copyToClipboardFallback(textToCopy)
+      }
+      
+      // Visual feedback
+      const originalHTML = button.innerHTML
+      button.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 6L9 17l-5-5"></path>
+        </svg>
+      `
+      button.style.backgroundColor = 'var(--primary-green)'
+      button.style.color = 'white'
+      
+      setTimeout(() => {
+        button.innerHTML = originalHTML
+        button.style.backgroundColor = ''
+        button.style.color = ''
+      }, 1500)
+      
+    } catch (err) {
+      console.error('Error copying to clipboard:', err)
+      
+      // Error feedback
+      button.style.backgroundColor = 'var(--red-500)'
+      button.style.color = 'white'
+      
+      setTimeout(() => {
+        button.style.backgroundColor = ''
+        button.style.color = ''
+      }, 1500)
+    }
+  }
+
+  copyToClipboardFallback(text) {
+    // Create a temporary textarea element
+    const textArea = document.createElement('textarea')
+    textArea.value = text
+    textArea.style.position = 'fixed'
+    textArea.style.left = '-999999px'
+    textArea.style.top = '-999999px'
+    document.body.appendChild(textArea)
+    textArea.focus()
+    textArea.select()
     
-    // Forzar descarga
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    try {
+      document.execCommand('copy')
+    } catch (err) {
+      console.error('Fallback copy failed:', err)
+    }
     
-    // Track download
-    this.trackDownload(filename.replace('.zip', ''))
+    document.body.removeChild(textArea)
   }
 }
 
@@ -403,21 +379,16 @@ const utils = {
 document.addEventListener("DOMContentLoaded", () => {
   const website = new ShapeGrammarWebsite()
 
-  // Handle initial hash in URL
+  // Handle hash links on page load
   const hash = window.location.hash.substring(1)
-  if (hash && document.getElementById(hash)) {
-    website.showTab(hash)
+  if (hash) {
+    setTimeout(() => {
+      const targetElement = document.getElementById(hash)
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" })
+      }
+    }, 100)
   }
-
-  // Handle browser back/forward buttons
-  window.addEventListener("popstate", () => {
-    const hash = window.location.hash.substring(1)
-    if (hash && document.getElementById(hash)) {
-      website.showTab(hash)
-    } else {
-      website.showTab("downloads")
-    }
-  })
 
   // Save stats before page unload
   window.addEventListener("beforeunload", () => {
