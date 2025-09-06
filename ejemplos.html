@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos - Shape Grammar</title>
+    <meta name="description" content="Galería de ejemplos, casos de uso y metodología de diseño con Shape Grammar.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="top-navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <h1><a href="index.html">ShapeGrammar</a></h1>
+                </div>
+                <div class="navbar-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="referencia.html" class="nav-link">Referencia</a>
+                    <a href="ejemplos.html" class="nav-link active">Ejemplos</a>
+                    <a href="documentacion.html" class="nav-link">Documentación</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <section class="hero-section compact">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Ejemplos y Casos de Uso</h1>
+                <p class="hero-subtitle">
+                    Aprende la metodología completa de diseño Shape Grammar con casos de estudio detallados y configuraciones ejemplo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Metodología de Diseño -->
+            <section class="methodology-section">
+                <div class="content-header">
+                    <h2>Metodología de Diseño Shape Grammar</h2>
+                    <p>Proceso estructurado de 3 etapas para desarrollar gramáticas de forma efectivas.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Selección de Referencias</h3>
+                        <ul>
+                            <li>Productos relacionados de la misma marca/línea</li>
+                            <li>Productos del usuario objetivo</li>
+                            <li>Productos aspiracionales</li>
+                            <li>Formas del contexto o gustos del usuario</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Desarrollo</h3>
+                        <ul>
+                            <li>Identificar formas y transformaciones en referencias</li>
+                            <li>Identificar elementos comunes</li>
+                            <li>Recrear referencias usando las gramáticas definidas</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Evaluación</h3>
+                        <ul>
+                            <li>Generar diseños consistentes con referencias</li>
+                            <li>Verificar coherencia formal</li>
+                            <li>Iterar y refinar configuraciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Casos de Estudio -->
+            <section class="examples-section">
+                <div class="content-header">
+                    <h2>Casos de Estudio Detallados</h2>
+                    <p>Ejemplos prácticos con configuraciones específicas y explicaciones paso a paso.</p>
+                </div>
+
+                <!-- Ejemplo 1: Sistema de Lámparas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 1: Sistema de Lámparas</h3>
+                        <span class="complexity-badge">Complejidad: Intermedia</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="case-info">
+                            <div class="case-details">
+                                <h4>Características del Sistema:</h4>
+                                <ul>
+                                    <li><strong>Arquitectura:</strong> 3 partes (Base, Cuerpo, Cabeza)</li>
+                                    <li><strong>Formas principales:</strong> cylinder, cube, sphere</li>
+                                    <li><strong>Transformaciones clave:</strong> bevel, twist, scale</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-config">
+                                <h4>Configuración JSON Específica:</h4>
+                                <pre class="code-block"><code>{
+  "product": "Examples/lamp.blend",
+  "samples": 15,
+  "form_detail": {
+    "Base": {
+      "number_transf": 2,
+      "max_number_forms": 1,
+      "forms": {
+        "cylinder": {"use": true},
+        "cube": {"use": true}
+      },
+      "transformations": {
+        "bevel": {"factor": 0.3},
+        "scale": {"axis": "z", "factor": 0.8}
+      }
+    },
+    "Cuerpo": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "twist": {"axis": "z", "max_twist": 0.5}
+      }
+    },
+    "Cabeza": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "forms": {
+        "sphere": {"use": true},
+        "dome_cut": {"use": true}
+      },
+      "transformations": {
+        "scale": {"axis": "x", "factor": 1.2}
+      }
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Colección de Botellas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 2: Colección de Botellas</h3>
+                        <span class="complexity-badge advanced">Complejidad: Avanzada</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="case-info">
+                            <div class="case-details">
+                                <h4>Metodología Aplicada:</h4>
+                                <ul>
+                                    <li><strong>Referencias:</strong> Análisis de botellas existentes</li>
+                                    <li><strong>Formas:</strong> cube_loft, cylinder, revolution</li>
+                                    <li><strong>Transformaciones:</strong> array (texturas), bevel (siempre), pull (solo cilindros)</li>
+                                </ul>
+                                
+                                <h4>Reglas Específicas:</h4>
+                                <ul>
+                                    <li><code>"bevel always *"</code> - Biselado aplicado a todas las formas</li>
+                                    <li><code>"array except cube_loft"</code> - Array excepto en formas loft</li>
+                                    <li><code>"pull only_with cylinder"</code> - Pull solo en cilindros</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-config">
+                                <h4>Configuración con Reglas Avanzadas:</h4>
+                                <pre class="code-block"><code>{
+  "product": "Examples/bottle.blend",
+  "samples": 20,
+  "form_detail": {
+    "Cuerpo": {
+      "number_transf": 3,
+      "max_number_forms": 1,
+      "forms": {
+        "cube_loft": {
+          "shape": "concave", 
+          "max_displacement": 0.5,
+          "factor": 0.3
+        },
+        "cylinder": {"use": true},
+        "revolution": {"factor": 0.4}
+      },
+      "transformations": {
+        "bevel": {"factor": 0.2},
+        "array": {"axis": "z", "max_count": 3},
+        "pull": {"factor": 0.6, "direction": "up"}
+      },
+      "rules": [
+        "bevel always *",
+        "array except cube_loft",
+        "pull only_with cylinder"
+      ]
+    },
+    "Cuello": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "taper": {"axis": "z"}
+      }
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Serie de Sillas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 3: Serie de Sillas</h3>
+                        <span class="complexity-badge expert">Complejidad: Experto</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="case-info">
+                            <div class="case-details">
+                                <h4>Características Especiales:</h4>
+                                <ul>
+                                    <li><strong>Partes opcionales:</strong> Espaldar configurable</li>
+                                    <li><strong>Patrones:</strong> Modificadores para patas repetidas</li>
+                                    <li><strong>Operaciones booleanas:</strong> Para detalles complejos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-config">
+                                <h4>Configuración con Partes Opcionales:</h4>
+                                <pre class="code-block"><code>{
+  "product": "Examples/chair.blend",
+  "samples": 12,
+  "form_detail": {
+    "Asiento": {
+      "number_transf": 2,
+      "max_number_forms": 1,
+      "optional": false,
+      "forms": {
+        "cube": {"use": true},
+        "quadrilateral": {
+          "fixed_axis": "z", 
+          "max_displacement": 0.3
+        }
+      },
+      "transformations": {
+        "bevel": {"factor": 0.4},
+        "bend": {"axis": "y"}
+      }
+    },
+    "Espaldar": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "optional": true,
+      "forms": {
+        "cube": {"use": true}
+      },
+      "transformations": {
+        "rotation": {"axis": "x", "factor": 0.2}
+      }
+    },
+    "Patas": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "optional": false,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "taper": {"axis": "z"}
+      }
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tips y Mejores Prácticas -->
+            <section class="tips-section">
+                <div class="content-header">
+                    <h2>Tips y Mejores Prácticas</h2>
+                    <p>Consejos prácticos para obtener los mejores resultados con Shape Grammar.</p>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>🔄 Iteración Múltiple</h4>
+                        <p>Crear múltiples configuraciones para el mismo diseño. Cada iteración refina y mejora los resultados.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>📈 Complejidad Gradual</h4>
+                        <p>Pasar de lo simple a lo complejo gradualmente. Comenzar con formas básicas antes de agregar transformaciones avanzadas.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>👁️ Revisión 3D</h4>
+                        <p>No confiar solo en renders - revisar modelos 3D directamente para verificar la calidad geométrica.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🔧 Uso de Mirror</h4>
+                        <p>Usar Mirror para simetrías en formas irregulares, especialmente útil con polígonos y cuadriláteros.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>📊 Análisis de Valores</h4>
+                        <p>Analizar archivo de valores para entender qué configuraciones funcionan mejor y por qué.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🎯 Refinamiento Iterativo</h4>
+                        <p>Iterar múltiples veces sobre la misma configuración ajustando parámetros específicos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuraciones Ejemplo Adicionales -->
+            <section class="additional-examples">
+                <div class="content-header">
+                    <h2>Configuraciones de Ejemplo Rápidas</h2>
+                    <p>Configuraciones listas para usar en diferentes tipos de productos.</p>
+                </div>
+
+                <div class="quick-examples-grid">
+                    <div class="quick-example">
+                        <h4>Joyería Básica</h4>
+                        <pre class="mini-code"><code>{
+  "Anillo": {
+    "forms": {"torus": {}},
+    "transformations": {
+      "texture": {"strength_factor": 0.3}
+    }
+  }
+}</code></pre>
+                    </div>
+                    <div class="quick-example">
+                        <h4>Maceta Simple</h4>
+                        <pre class="mini-code"><code>{
+  "Contenedor": {
+    "forms": {"cylinder": {}},
+    "transformations": {
+      "taper": {"axis": "z"},
+      "array": {"axis": "z", "max_count": 2}
+    }
+  }
+}</code></pre>
+                    </div>
+                    <div class="quick-example">
+                        <h4>Vaso/Copa</h4>
+                        <pre class="mini-code"><code>{
+  "Cuerpo": {
+    "forms": {"revolution": {"factor": 0.5}},
+    "transformations": {
+      "bevel": {"factor": 0.2}
+    },
+    "rules": ["bevel always *"]
+  }
+}</code></pre>
+                    </div>
+                    <div class="quick-example">
+                        <h4>Elemento Decorativo</h4>
+                        <pre class="mini-code"><code>{
+  "Forma": {
+    "forms": {"polygon": {"max_vertice": 8}},
+    "transformations": {
+      "twist": {"axis": "z", "max_twist": 1.0},
+      "mirror": {"axis": "x"}
+    }
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Herramientas de Gramática de Formas - Diseño Generativo</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

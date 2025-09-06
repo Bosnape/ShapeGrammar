@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gramática de Formas - Herramientas de Diseño Generativo</title>
     <meta name="description" content="Descarga herramientas de Gramática de Formas para diseño 3D generativo. Incluye complemento de Blender, ejemplos y aplicación GUI para diseño paramétrico de productos.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,13 +16,13 @@
         <div class="container">
             <div class="navbar-content">
                 <div class="navbar-brand">
-                    <h1>ShapeGrammar</h1>
+                    <h1><a href="index.html">ShapeGrammar</a></h1>
                 </div>
                 <div class="navbar-menu">
-                    <button class="nav-link active" data-tab="downloads">Descargas</button>
-                    <button class="nav-link" data-tab="documentation">Documentación</button>
-                    <button class="nav-link" data-tab="examples">Ejemplos</button>
-                    <button class="nav-link" data-tab="features">Características</button>
+                    <a href="index.html" class="nav-link active">Inicio</a>
+                    <a href="referencia.html" class="nav-link">Referencia</a>
+                    <a href="ejemplos.html" class="nav-link">Ejemplos</a>
+                    <a href="documentacion.html" class="nav-link">Documentación</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,30 @@
     <!-- Clean main content area with minimal styling -->
     <main class="main-content">
         <div class="container">
-            <section id="downloads" class="tab-content active">
+            <!-- Nueva sección: ¿Qué es Shape Grammar? -->
+            <section class="intro-section">
+                <div class="content-header">
+                    <h2>¿Qué es Shape Grammar?</h2>
+                    <p>Shape Grammar es un sistema de diseño generativo que permite crear variaciones ilimitadas de productos 3D mediante reglas geométricas y transformaciones paramétricas.</p>
+                </div>
+                
+                <div class="intro-grid">
+                    <div class="intro-card">
+                        <h3>🎯 Diseño Basado en Reglas</h3>
+                        <p>Define reglas una vez y genera múltiples variaciones que mantienen la coherencia de diseño.</p>
+                    </div>
+                    <div class="intro-card">
+                        <h3>⚡ Generación Automática</h3>
+                        <p>Crea docenas de variaciones de productos en segundos sin modelado manual.</p>
+                    </div>
+                    <div class="intro-card">
+                        <h3>🔧 Control Total</h3>
+                        <p>Ajusta parámetros precisos para cada forma y transformación según tus necesidades.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="downloads" class="downloads-section">
                 <!-- Optimized content header structure for better hierarchy -->
                 <div class="content-header">
                     <h2>Herramientas Disponibles</h2>
@@ -86,7 +109,7 @@
                         <div class="large-file-notice">
                             <p>⚡ Archivo grande (427 MB). La descarga puede tomar varios minutos.</p>
                         </div>
-                        <a href="https://github.com/Bosnape/ShapeGrammar/raw/main/shape_grammar_gui.zip" 
+                        <a href="https://github.com/Bosnape/ShapeGrammar/raw/main/assets/downloads/shape_grammar_gui.zip" 
                            class="download-btn primary" 
                            id="large-download-btn"
                            download="shape_grammar_gui.zip"
@@ -105,7 +128,7 @@
                             <span class="filename">blender_addon.zip</span>
                             <span class="compatibility">Blender 3.0+</span>
                         </div>
-                        <a href="https://github.com/Bosnape/ShapeGrammar/raw/main/blender_addon.zip" 
+                        <a href="https://github.com/Bosnape/ShapeGrammar/raw/main/assets/downloads/blender_addon.zip" 
                            class="download-btn" 
                            download="blender_addon.zip"
                            target="_blank">
@@ -123,7 +146,7 @@
                             <span class="filename">examples.zip</span>
                             <span class="compatibility">Diseños de Lámpara, Silla, Botella</span>
                         </div>
-                        <a href="https://github.com/Bosnape/ShapeGrammar/raw/main/examples.zip" 
+                        <a href="https://github.com/Bosnape/ShapeGrammar/raw/main/assets/downloads/examples.zip" 
                            class="download-btn" 
                            download="examples.zip"
                            target="_blank">
@@ -144,158 +167,16 @@
                     </ol>
                 </div>
             </section>
-
-            <section id="documentation" class="tab-content">
-                <!-- Consistent content header styling across all sections -->
-                <div class="content-header">
-                    <h2>Documentación</h2>
-                    <p>Todo lo que necesitas para dominar la Gramática de Formas para diseño generativo.</p>
-                </div>
-
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <h3>Conceptos Centrales</h3>
-                        <p>Entender las gramáticas de formas, reglas generativas y cómo se aplican al diseño de productos 3D.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Sistema de Configuración</h3>
-                        <p>Domina los archivos de configuración JSON, define arquitecturas de productos y configura parámetros.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Diseño Basado en Reglas</h3>
-                        <p>Crea reglas de diseño inteligentes que gobiernan la generación de formas y aseguran consistencia.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Operaciones de Transformación</h3>
-                        <p>Aplica transformaciones sofisticadas como torsión, afilado, doblado, biselado y efectos personalizados.</p>
-                    </article>
-                </div>
-
-                <div class="code-section">
-                    <h3>Estructura de Configuración JSON</h3>
-                    <pre class="code-block"><code>{
-  "product": "Examples/lamp.blend",
-  "samples": 10,
-  "savepath": "/path/to/output/",
-  "form_detail": {
-    "Base": {
-      "number_transf": 2,
-      "max_number_forms": 2,
-      "forms": {
-        "cylinder": {},
-        "cube": {}
-      },
-      "transformations": {
-        "bevel": {"factor": 0.3},
-        "twist": {"axis": "z"}
-      }
-    }
-  }
-}</code></pre>
-                </div>
-            </section>
-
-            <section id="features" class="tab-content">
-                <!-- Enhanced content header with better description -->
-                <div class="content-header">
-                    <h2>Características Poderosas</h2>
-                    <p>Gramática de Formas proporciona un conjunto completo de herramientas para generación de diseño paramétrico con capacidades de nivel profesional.</p>
-                </div>
-
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <h3>13 Formas Primitivas</h3>
-                        <p><strong>Básicas:</strong> Cubo, Cilindro, Esfera, Cono, Toro, Pentágono, Corte de Cúpula, Tubo Cuadrado<br>
-                        <strong>Avanzadas:</strong> Polígono, Cuadrilátero, Cubo Loft, Revolución, Barrido</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>14 Transformaciones</h3>
-                        <p><strong>Deformación:</strong> Torsión, Afilado, Doblado, Tirón<br>
-                        <strong>Modificación:</strong> Biselado, Escala, Rotación, Espejo<br>
-                        <strong>Patrones:</strong> Array, Array Rotación, Expandir, Contraer, Sombra, Textura</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Arquitectura Multi-Parte</h3>
-                        <p>Diseña productos complejos con múltiples componentes, cada uno con reglas de generación independientes y control paramétrico.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Operaciones Booleanas</h3>
-                        <p>Operaciones avanzadas de corte, unión e intersección para crear geometrías complejas y características detalladas de productos.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Control Paramétrico</h3>
-                        <p>Ajusta finamente cada aspecto de la generación con control preciso de parámetros y reglas de diseño basadas en restricciones.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Generación por Lotes</h3>
-                        <p>Genera docenas de variaciones de diseño automáticamente con formatos de salida configurables incluyendo STL, Blend y renders.</p>
-                    </article>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">∞</span>
-                        <div class="stat-label">Variaciones de Diseño</div>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">3</span>
-                        <div class="stat-label">Formatos de Exportación</div>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">100%</span>
-                        <div class="stat-label">Paramétrico</div>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">0</span>
-                        <div class="stat-label">Programación Requerida</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="examples" class="tab-content">
-                <!-- Consistent content header structure -->
-                <div class="content-header">
-                    <h2>Ejemplos de Diseño</h2>
-                    <p>Explora las posibilidades creativas con Gramática de Formas a través de estos proyectos de ejemplo.</p>
-                </div>
-
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <h3>Colección de Lámparas</h3>
-                        <p>Genera lámparas de mesa elegantes con geometrías de base variadas y proporciones ajustables.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Sistema de Sillas</h3>
-                        <p>Crea muebles de asiento con respaldos opcionales y diferentes configuraciones de patas.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Serie de Botellas</h3>
-                        <p>Diseña botellas y contenedores con perfiles de cuello variados y formas de cuerpo personalizables.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Colección de Vajilla</h3>
-                        <p>Genera tazas, jarras y vasos con diferentes estilos de asa y perfiles de borde.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Componentes de Joyería</h3>
-                        <p>Crea anillos, colgantes y elementos decorativos usando operaciones booleanas avanzadas.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Diseños de Macetas</h3>
-                        <p>Diseña contenedores para plantas con geometrías variables y características decorativas.</p>
-                    </article>
-                </div>
-            </section>
         </div>
     </main>
 
     <!-- Simplified footer -->
     <footer class="footer">
         <div class="container">
-            <p>Herramientas de Gramática de Formas - Diseño Generativo Simplificado</p>
+            <p>Herramientas de Gramática de Formas - Diseño Generativo</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
