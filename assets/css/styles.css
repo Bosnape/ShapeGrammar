@@ -500,7 +500,8 @@ body {
   overflow-x: auto;
   line-height: 1.6;
   position: relative;
-  white-space: pre;
+  word-wrap: break-word;
+  white-space: pre-wrap;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -1253,7 +1254,8 @@ html {
   font-family: "SF Mono", "Monaco", "Cascadia Code", monospace;
   line-height: 1.6;
   position: relative;
-  white-space: pre;
+  word-wrap: break-word;
+  white-space: pre-wrap;
   max-width: 100%;
   box-sizing: border-box;
 }
