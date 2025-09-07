@@ -621,7 +621,7 @@ body {
   .hero-section {
     /* Optimized mobile padding and margin */
     padding: var(--space-4xl) 0; /* Espacio progresivo reducido */
-    margin-top: var(--navbar-height);
+    margin-top: calc(var(--navbar-height) + 1.5rem);
   }
 
   .main-content {
@@ -687,7 +687,7 @@ body {
   .hero-section {
     /* Further optimized small mobile spacing */
     padding: var(--space-3xl) 0; /* Espacio progresivo muy reducido */
-    margin-top: var(--navbar-height);
+    margin-top: calc(var(--navbar-height) + 2rem);
   }
 
   .main-content {
@@ -697,6 +697,19 @@ body {
 }
 
 /* Accessibility and focus styles */
+
+/* Additional fix for devices with small screen heights or prominent system bars */
+@media (max-height: 650px) and (max-width: 768px) {
+  .hero-section {
+    margin-top: calc(var(--navbar-height) + 3rem);
+    padding: 2.5rem 0 2rem 0;
+  }
+  
+  .top-navbar {
+    padding: 0.8rem 0;
+  }
+}
+
 .nav-link:focus,
 .download-btn:focus,
 .hero-cta-btn:focus {
@@ -1699,7 +1712,7 @@ html {
 
   .hero-section {
     padding: 4rem 0 3rem 0;
-    margin-top: var(--navbar-height);
+    margin-top: calc(var(--navbar-height) + 2rem);
   }
 
   .main-content {
@@ -1838,7 +1851,7 @@ html {
 @media (max-width: 480px) {
   .hero-section {
     padding: 3rem 0 2rem 0;
-    margin-top: var(--navbar-height);
+    margin-top: calc(var(--navbar-height) + 2.5rem);
   }
 
   .hero-title {
@@ -2017,50 +2030,3 @@ html {
 .capability-card {
   will-change: transform;
 }
-
-/*
-===========================================
-WHITE SPACE MANAGEMENT - MEJORAS IMPLEMENTADAS
-===========================================
-
-✅ ESPACIOS PROGRESIVOS IMPLEMENTADOS:
-- --space-micro: 0.25rem (4px) - Elementos muy relacionados
-- --space-xs: 0.5rem (8px) - Grupos de elementos  
-- --space-sm: 0.75rem (12px) - Button groups, related items
-- --space-md: 1rem (16px) - Espaciado base
-- --space-lg: 1.5rem (24px) - Entre subsecciones
-- --space-xl: 2rem (32px) - Entre secciones secundarias
-- --space-2xl: 2.5rem (40px) - Entre secciones principales
-- --space-3xl: 3rem (48px) - Entre grandes bloques
-- --space-4xl: 4rem (64px) - Separaciones mayores
-- --space-5xl: 5rem (80px) - Separaciones dramáticas
-
-✅ MICRO-ESPACIOS APLICADOS EN:
-- Card headers: gap entre título y file-size
-- File info: padding interno consistente
-- Button groups: espaciado entre elementos relacionados
-- List items: separación entre elementos de lista
-- Form elements: espaciado entre inputs relacionados
-
-✅ ESPACIOS RESPONSIVOS:
-- Mobile (768px): Reducción proporcionada (40px → 32px, etc.)
-- Small mobile (480px): Reducción mayor (40px → 24px, etc.)
-- Mantiene jerarquía visual en todos los tamaños
-
-✅ APLICADO EN COMPONENTES:
-- Hero section: espacios entre título, subtitle y CTA
-- Download cards: padding interno y gaps entre cards
-- Info sections: separación entre secciones
-- Code blocks: padding interno generoso
-- Navigation: espaciado entre links y grupos
-
-BENEFICIOS OBTENIDOS:
-- Mejor jerarquía visual y respiración
-- Consistencia matemática en toda la UI
-- Experiencia responsive optimizada
-- Mantenimiento simplificado con variables
-- Mayor legibilidad y usabilidad
-
-Fecha de implementación: Septiembre 6, 2025
-Basado en: mejoras-ux-futuras.md
-*/
