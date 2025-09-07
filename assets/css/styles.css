@@ -1204,7 +1204,7 @@ html {
 
 .quick-examples-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -1241,6 +1241,10 @@ html {
   font-family: "SF Mono", "Monaco", "Cascadia Code", monospace;
   line-height: 1.6;
   position: relative;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Copy button styles */
@@ -1772,6 +1776,25 @@ html {
     margin-bottom: 0.4rem;
   }
 
+  .quick-example {
+    padding: 1.25rem;
+  }
+
+  .quick-example h4 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .mini-code {
+    font-size: 0.75rem;
+    padding: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .additional-examples {
+    padding: 2rem 0;
+  }
+
   .workflow-step {
     flex-direction: column;
     text-align: center;
@@ -1800,6 +1823,15 @@ html {
 
   .case-details li {
     font-size: 0.92rem;
+  }
+
+  .quick-example {
+    padding: 1.4rem;
+  }
+
+  .mini-code {
+    font-size: 0.78rem;
+    padding: 0.9rem;
   }
 }
 
@@ -1876,6 +1908,30 @@ html {
 
   .case-details ul {
     padding-left: 0.8rem;
+  }
+
+  .quick-example {
+    padding: 1rem;
+  }
+
+  .quick-example h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .mini-code {
+    font-size: 0.7rem;
+    padding: 0.7rem;
+    line-height: 1.4;
+  }
+
+  .additional-examples {
+    padding: 1.5rem 0;
+  }
+
+  .quick-examples-grid {
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
 }
 
