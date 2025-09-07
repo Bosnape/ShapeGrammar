@@ -500,6 +500,10 @@ body {
   overflow-x: auto;
   line-height: 1.6;
   position: relative;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Minimal footer */
@@ -1742,6 +1746,32 @@ html {
     gap: 1rem;
   }
 
+  .case-study {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .code-block {
+    font-size: 0.8rem;
+    padding: 1rem;
+    overflow-x: auto;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .case-details ul {
+    padding-left: 1rem;
+  }
+
+  .case-details li {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
   .workflow-step {
     flex-direction: column;
     text-align: center;
@@ -1750,6 +1780,26 @@ html {
 
   .step-icon {
     align-self: center;
+  }
+}
+
+/* Media query intermedia para tablets */
+@media (max-width: 768px) and (min-width: 481px) {
+  .case-study {
+    padding: 1.75rem;
+  }
+
+  .case-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .code-block {
+    font-size: 0.85rem;
+    padding: 1.2rem;
+  }
+
+  .case-details li {
+    font-size: 0.92rem;
   }
 }
 
@@ -1789,6 +1839,43 @@ html {
 
   .file-size {
     align-self: flex-start;
+  }
+
+  .case-study {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-header h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .complexity-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .code-block {
+    font-size: 0.75rem;
+    padding: 0.8rem;
+    line-height: 1.5;
+    border-radius: var(--radius-md);
+  }
+
+  .case-details h4,
+  .case-config h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .case-details li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .case-details ul {
+    padding-left: 0.8rem;
   }
 }
 
