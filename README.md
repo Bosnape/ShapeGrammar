@@ -51,3 +51,20 @@ En la carpeta `assets/downloads/` encontrarás:
 ## GitHub Pages
 
 Este proyecto está configurado para funcionar con GitHub Pages. La página principal se sirve desde `index.html`.
+
+## Licencia
+
+El software ShapeGrammar descargable está protegido por copyright de [EAFIT - Universidad EAFIT](LICENSE).
+
+**Permitido:**
+- ✅ Uso personal, educativo o de investigación del software ShapeGrammar
+- ✅ Descargar e instalar las herramientas desde esta página web
+
+**Prohibido:**
+- ❌ Distribución del software ShapeGrammar sin autorización expresa
+- ❌ Sublicenciamiento del software ShapeGrammar
+- ❌ Uso comercial del software ShapeGrammar sin autorización
+
+**Nota:** Esta licencia se aplica únicamente al software descargable, no a la página web de documentación.
+
+Para más detalles, consulta el archivo [LICENSE](LICENSE).
