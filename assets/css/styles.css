@@ -2003,6 +2003,21 @@ html {
   animation: loading-shimmer 1.5s infinite;
 }
 
+/* Spacing for backup download button under primary */
+#backup-download-btn {
+  margin-top: var(--space-md);
+  background-color: var(--bg-white);
+  color: var(--primary-green);
+  border: 1px solid var(--border-gray-300);
+  box-shadow: none;
+  display: inline-block;
+}
+
+#backup-download-btn:hover {
+  background-color: var(--bg-gray-100);
+  border-color: var(--primary-green);
+}
+
 @keyframes loading-shimmer {
   0% {
     left: -100%;

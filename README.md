@@ -16,12 +16,8 @@ ShapeGrammar/
 ├── assets/
 │   ├── css/
 │   │   └── styles.css            ← Estilos CSS
-│   ├── js/
-│   │   └── script.js             ← Scripts JavaScript
-│   └── downloads/
-│       ├── blender_addon.zip     ← Addon para Blender
-│       ├── examples.zip          ← Ejemplos
-│       └── shape_grammar_gui.zip ← GUI de Shape Grammar
+│   └─── js/
+│       └── script.js             ← Scripts JavaScript
 ├── extra/
 │   ├── extra_documentacion.md    ← Documentación técnica detallada
 │   └── extra_pipeline.md         ← Flujo de trabajo y metodología
@@ -34,13 +30,6 @@ ShapeGrammar/
 - **referencia.html**: Documentación de referencia
 - **ejemplos.html**: Ejemplos de uso
 - **documentacion.html**: Documentación completa
-
-## Descargas
-
-En la carpeta `assets/downloads/` encontrarás:
-- Addon para Blender
-- Ejemplos de uso
-- GUI de Shape Grammar
 
 ## Cómo usar
 
