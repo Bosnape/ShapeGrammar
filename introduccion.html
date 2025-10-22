@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción - Shape Grammar</title>
+    <meta name="description" content="Introducción completa a Shape Grammar: fundamentos, formas primitivas, transformaciones y sistema de reglas para diseño generativo 3D.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="top-navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <h1><a href="index.html">3D Shape Grammar</a></h1>
+                </div>
+                <div class="navbar-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="introduccion.html" class="nav-link active">Introducción</a>
+                    <a href="config_blender.html" class="nav-link">Config Blender</a>
+                    <a href="config_json.html" class="nav-link">Config JSON</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <section class="hero-section compact">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Introducción a Shape Grammar</h1>
+                <p class="hero-subtitle">
+                    Guía completa de fundamentos, formas primitivas, transformaciones y sistema de reglas para diseño generativo 3D.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Fundamentos de Shape Grammar (movido desde documentacion.html) -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Fundamentos de Shape Grammar</h2>
+                    <p>Conceptos teóricos fundamentales que sustentan el sistema de diseño generativo.</p>
+                </div>
+
+                <div class="fundamentals-content">
+                    <div class="history-section">
+                        <h3>Historia y Conceptos</h3>
+                        <div class="concept-grid">
+                            <div class="concept-card">
+                                <h4>Origen (1971)</h4>
+                                <p>Presentado por <strong>George Stiny</strong> y <strong>James Gips</strong> como el primer sistema formal para crear y comprender diseños a través de formas geométricas.</p>
+                            </div>
+                            <div class="concept-card">
+                                <h4>Componentes Principales</h4>
+                                <ul>
+                                    <li><strong>Reglas de forma:</strong> Describen transformaciones geométricas</li>
+                                    <li><strong>Motor de generación:</strong> Aplica las reglas de manera sistemática</li>
+                                </ul>
+                            </div>
+                            <div class="concept-card">
+                                <h4>Definición de Regla</h4>
+                                <p>Una regla describe cómo una forma geométrica puede transformarse en otra, compuesta por:</p>
+                                <ul>
+                                    <li>Formas geométricas primitivas</li>
+                                    <li>Operaciones geométricas específicas</li>
+                                    <li>Notación: Regla con flecha de izquierda a derecha</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Motor de Generación (movido desde documentacion.html) -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Motor de Generación</h2>
+                    <p>Sistema central que ejecuta las reglas y controla el proceso de generación de formas.</p>
+                </div>
+
+                <div class="generation-types">
+                    <h3>Tipos de Selección de Reglas</h3>
+                    <div class="selection-grid">
+                        <div class="selection-card">
+                            <h4>Descriptivo</h4>
+                            <p>Reglas predefinidas con criterios específicos de aplicación. Proporciona control total sobre el proceso generativo.</p>
+                        </div>
+                        <div class="selection-card">
+                            <h4>Aleatorio</h4>
+                            <p>Selección al azar entre reglas disponibles. Genera variedad impredecible manteniendo coherencia estructural.</p>
+                        </div>
+                        <div class="selection-card">
+                            <h4>Aprendido</h4>
+                            <!-- Revisar precision de la informacion -->
+                            <p>Basado en patrones identificados en diseños existentes. Utiliza machine learning para optimizar selecciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Arquitectura del Sistema (movido desde documentacion.html) -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Arquitectura del Sistema</h2>
+                    <p>Concepto de "cajas" y estructura modular para diseño de productos complejos.</p>
+                </div>
+
+                <div class="architecture-content">
+                    <div class="boxes-concept">
+                        <h3>Concepto de "Cajas"</h3>
+                        <div class="boxes-steps">
+                            <div class="box-step">
+                                <div class="step-number">1</div>
+                                <h4>Definir Arquitectura</h4>
+                                <p>Definir arquitectura del producto usando cajas de diferentes tamaños que representan componentes principales.</p>
+                                <img src="assets/images/introduction/boxes/boxes.png" alt="Definir Arquitectura con cajas" class="box-step-image">
+                            </div>
+                            <div class="box-step">
+                                <div class="step-number">2</div>
+                                <h4>Llenar Cajas</h4>
+                                <p>Llenar las cajas con sólidos simples (primitivas geométricas) que servirán como base para transformaciones.</p>
+                                <img src="assets/images/introduction/boxes/shapes.png" alt="Llenar Cajas con formas primitivas" class="box-step-image">
+                            </div>
+                            <div class="box-step">
+                                <div class="step-number">3</div>
+                                <h4>Aplicar Transformaciones</h4>
+                                <p>Aplicar transformaciones a los sólidos según las reglas definidas para cada componente.</p>
+                                <img src="assets/images/introduction/boxes/transformations.png" alt="Aplicar Transformaciones a las formas" class="box-step-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advanced-config">
+                        <h3>Configuración Avanzada</h3>
+                        
+                        <div class="config-grid">
+                            <div class="config-card">
+                                <h4>Partes Fijas</h4>
+                                <p>Objetos de Blender que no se modifican durante la generación.</p>
+                                <div class="config-details">
+                                    <ul>
+                                        <li>Nombre debe iniciar con guión bajo (_)</li>
+                                        <li>Para partes estándar o del contexto</li>
+                                        <li>Ejemplo: <code>_tornillo</code>, <code>_base_fija</code></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="config-card">
+                                <h4>Operaciones Booleanas</h4>
+                                <p>Modificadores aplicados a modelos generados para crear geometrías complejas.</p>
+                                <div class="config-details">
+                                    <ul>
+                                        <li>Objeto de corte nombrado con guión bajo (_)</li>
+                                        <li>Crear modificador en arquitectura de cajas</li>
+                                        <li>Cambiar visibilidad del objeto que corta</li>
+                                        <li>Tipos: Union, Difference, Intersect</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="config-card">
+                                <h4>Patrones</h4>
+                                <p>Para repetir partes iguales de manera eficiente.</p>
+                                <div class="config-details">
+                                    <ul>
+                                        <li>Modificador aplicado después de la generación</li>
+                                        <li>Usar en arquitectura de cajas de Blender</li>
+                                        <li>Ideal para patas de sillas, elementos decorativos</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="config-card">
+                                <h4>Partes Opcionales</h4>
+                                <p>Partes que aparecen aleatoriamente en las generaciones.</p>
+                                <div class="config-details">
+                                    <ul>
+                                        <li>Configurar con <code>"optional": true</code></li>
+                                        <li>Presentes solo en algunas generaciones</li>
+                                        <li>Útil para variaciones de productos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formas Primitivas -->
+            <section class="reference-section">
+                <div class="content-header">
+                    <h2>Formas Primitivas (13 total)</h2>
+                    <p>Geometrías base que sirven como punto de partida para la generación de diseños.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3>Formas Básicas</h3>
+                    <div class="reference-grid">
+                        <div class="reference-card">
+                            <h4>cube</h4>
+                            <p>Cubo básico - forma fundamental para arquitecturas rectangulares</p>
+                            <img src="assets/images/introduction/shapes/cube.png" alt="Ejemplo de forma cube" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>cylinder</h4>
+                            <p>Cilindro básico - ideal para componentes circulares y tubulares</p>
+                            <img src="assets/images/introduction/shapes/cylinder.png" alt="Ejemplo de forma cylinder" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>sphere</h4>
+                            <p>Esfera básica - forma orgánica para elementos redondeados</p>
+                            <img src="assets/images/introduction/shapes/sphere.png" alt="Ejemplo de forma sphere" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>cone</h4>
+                            <p>Cono básico - perfecto para elementos cónicos y puntiagudos</p>
+                            <img src="assets/images/introduction/shapes/cone.png" alt="Ejemplo de forma cone" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>torus</h4>
+                            <p>Toro/dona - forma toroidal para elementos con agujero central</p>
+                            <img src="assets/images/introduction/shapes/torus.png" alt="Ejemplo de forma torus" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>pentagon</h4>
+                            <p>Pentágono extruido - forma poligonal de cinco lados</p>
+                            <img src="assets/images/introduction/shapes/pentagon.png" alt="Ejemplo de forma pentagon" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>dome_cut</h4>
+                            <p>Corte de cúpula - media esfera para elementos dome</p>
+                            <img src="assets/images/introduction/shapes/dome_cut.png" alt="Ejemplo de forma dome_cut" class="reference-image">
+                        </div>
+                        <div class="reference-card">
+                            <h4>tube_square</h4>
+                            <p>Tubo con sección cuadrada - tubo hueco rectangular</p>
+                            <img src="assets/images/introduction/shapes/tube_square.png" alt="Ejemplo de forma tube_square" class="reference-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Formas Paramétricas</h3>
+                    <p class="subsection-description">Requieren configuración aleatoria específica</p>
+                    
+                    <div class="parametric-grid">
+                        <div class="parametric-card">
+                            <h4>polygon</h4>
+                            <p>Polígono irregular con número variable de vértices</p>
+                            <img src="assets/images/introduction/shapes/polygon.png" alt="Ejemplo de forma polygon" class="reference-image">
+                            <div class="parameters">
+                                <h5>Parámetros:</h5>
+                                <code>max_vertice: 12</code>
+                            </div>
+                        </div>
+                        <div class="parametric-card">
+                            <h4>quadrilateral</h4>
+                            <p>Cuadrilátero irregular con desplazamientos controlados</p>
+                            <img src="assets/images/introduction/shapes/quadrilateral.png" alt="Ejemplo de forma quadrilateral" class="reference-image">
+                            <div class="parameters">
+                                <h5>Parámetros:</h5>
+                                <code>fixed_axis: z,<br>
+max_displacement: 0.8</code>
+                            </div>
+                        </div>
+                        <div class="parametric-card">
+                            <h4>cube_loft</h4>
+                            <p>Cubo con deformación loft para formas orgánicas</p>
+                            <img src="assets/images/introduction/shapes/cube_loft.png" alt="Ejemplo de forma cube_loft" class="reference-image">
+                            <div class="parameters">
+                                <h5>Parámetros:</h5>
+                                <code>shape: convex,<br>
+factor: 0.5,<br>
+max_displacement: 0.7</code>
+                            </div>
+                        </div>
+                        <div class="parametric-card">
+                            <h4>revolution</h4>
+                            <p>Forma de revolución generada por rotación de perfil</p>
+                            <img src="assets/images/introduction/shapes/revolution.png" alt="Ejemplo de forma revolution" class="reference-image">
+                            <div class="parameters">
+                                <h5>Parámetros:</h5>
+                                <code>factor: 0.4</code>
+                            </div>
+                        </div>
+                        <div class="parametric-card">
+                            <h4>swept</h4>
+                            <p>Forma extruida con perfil personalizado a lo largo de un eje</p>
+                            <img src="assets/images/introduction/shapes/swept.png" alt="Ejemplo de forma swept" class="reference-image">
+                            <div class="parameters">
+                                <h5>Parámetros:</h5>
+                                <code>depth_factor: 0.6,<br>
+extrude_factor: 0.5,<br>
+axis: z,<br>
+max_displacement: 0.4</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transformaciones -->
+            <section class="reference-section">
+                <div class="content-header">
+                    <h2>Transformaciones (14 total)</h2>
+                    <p>Operaciones que modifican las formas primitivas para crear variaciones complejas.</p>
+                </div>
+
+                <div class="transformations-grid">
+                    <div class="transformation-card">
+                        <h4>shade</h4>
+                        <p>Sombreado (Flat/Smooth) - controla la suavidad de superficies</p>
+                        <img src="assets/images/introduction/transformations/shade.png" alt="Transformación shade" class="reference-image">
+                        <div class="parameters">
+                            <code>shade_type: random</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>twist</h4>
+                        <p>Torsión sobre un eje - crea deformaciones helicoidales</p>
+                        <img src="assets/images/introduction/transformations/twist.png" alt="Transformación twist" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: x,<br>
+max_twist: 0.8</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>taper</h4>
+                        <p>Afilado sobre un eje - reduce el grosor gradualmente</p>
+                        <img src="assets/images/introduction/transformations/taper.png" alt="Transformación taper" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: z</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>bend</h4>
+                        <p>Doblado sobre un eje - curva la geometría</p>
+                        <img src="assets/images/introduction/transformations/bend.png" alt="Transformación bend" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: z</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>bevel</h4>
+                        <p>Biselado de bordes - suaviza aristas y esquinas</p>
+                        <img src="assets/images/introduction/transformations/bevel.png" alt="Transformación bevel" class="reference-image">
+                        <div class="parameters">
+                            <code>factor: 0.7,<br>
+max_segments: 7</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>scale</h4>
+                        <p>Escalado en un eje - modifica proporciones direccionalmente</p>
+                        <img src="assets/images/introduction/transformations/scale.png" alt="Transformación scale" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: x,<br>
+factor: 0.8</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>rotation</h4>
+                        <p>Rotación en un eje - gira la geometría</p>
+                        <img src="assets/images/introduction/transformations/rotation.png" alt="Transformación rotation" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: x,<br>
+factor: 0.8</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>mirror</h4>
+                        <p>Espejo en un eje - crea simetría reflectiva</p>
+                        <img src="assets/images/introduction/transformations/mirror.png" alt="Transformación mirror" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: x,<br>
+Nota: se uso la forma quadrilateral</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>array_rotation</h4>
+                        <p>Array rotacional - duplica objetos en patrón circular</p>
+                        <img src="assets/images/introduction/transformations/array_rotation.png" alt="Transformación array_rotation" class="reference-image">
+                        <div class="parameters">
+                            <code>max_count: 10</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>array</h4>
+                        <p>Array lineal - duplica objetos en línea recta</p>
+                        <img src="assets/images/introduction/transformations/array.png" alt="Transformación array" class="reference-image">
+                        <div class="parameters">
+                            <code>relative_offset_displace: 1.1,<br>
+max_count: 5,<br>
+axis: x,<br>
+scale_factor: 1</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>expand</h4>
+                        <p>Expandir geometría - aumenta el volumen direccionalmente</p>
+                        <img src="assets/images/introduction/transformations/expand.png" alt="Transformación expand" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: x</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>contract</h4>
+                        <p>Contraer geometría - reduce el volumen direccionalmente</p>
+                        <img src="assets/images/introduction/transformations/contract.png" alt="Transformación contract" class="reference-image">
+                        <div class="parameters">
+                            <code>axis: x</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>pull</h4>
+                        <p>Tirar vértices - desplaza puntos en dirección específica</p>
+                        <img src="assets/images/introduction/transformations/pull.png" alt="Transformación pull" class="reference-image">
+                        <div class="parameters">
+                            <code>factor: 0.7,<br>
+direction: up</code>
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <h4>texture</h4>
+                        <p>Aplicar textura procedural - añade rugosidad superficial</p>
+                        <img src="assets/images/introduction/transformations/texture.png" alt="Transformación texture" class="reference-image">
+                        <div class="parameters">
+                            <code>strength_factor: 0.8,<br>
+location_factor: 0.7,<br>
+scale_factor: 0.5</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sistema de Reglas -->
+            <section class="reference-section">
+                <div class="content-header">
+                    <h2>Sistema de Reglas</h2>
+                    <p>Control avanzado sobre cuándo y cómo se aplican las transformaciones.</p>
+                </div>
+
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <h4>only_with</h4>
+                        <p>Aplicar transformación solo con forma específica</p>
+                            <img src="assets/images/introduction/rules/only_with.png" alt="Regla only_with" class="reference-image">
+                        <div class="example">
+                            <strong>Ejemplo:</strong>
+                            <code>twist only_with cube</code>
+                        </div>
+                        <p class="rule-description">La transformación twist solo se aplicará cuando la forma sea un cubo.</p>
+                    </div>
+                    <div class="rule-card">
+                        <h4>except</h4>
+                        <p>No aplicar transformación a forma específica</p>
+                            <img src="assets/images/introduction/rules/except.png" alt="Regla except" class="reference-image">
+                        <div class="example">
+                            <strong>Ejemplo:</strong>
+                            <code>rotation except cube</code>
+                        </div>
+                        <p class="rule-description">La transformación rotation se aplicará a todas las formas excepto cubos.</p>
+                    </div>
+                    <div class="rule-card">
+                        <h4>always</h4>
+                        <p>Aplicar siempre transformación (usar * para todas las formas)</p>
+                            <img src="assets/images/introduction/rules/always.png" alt="Regla always" class="reference-image">
+                        <div class="example">
+                            <strong>Ejemplo:</strong>
+                            <code>bevel always *</code>
+                        </div>
+                        <p class="rule-description">La transformación bevel se aplicará siempre, independientemente de la forma.</p>
+                    </div>
+                </div>
+            </section>
+
+            
+            <!-- Tips y Mejores Prácticas -->
+            <section class="tips-section">
+                <div class="content-header">
+                    <h2>Tips y Mejores Prácticas</h2>
+                    <p>Consejos prácticos para obtener los mejores resultados con Shape Grammar.</p>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Iteración Múltiple</h4>
+                        <p>Crear múltiples configuraciones para el mismo diseño. Cada iteración refina y mejora los resultados.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Complejidad Gradual</h4>
+                        <p>Pasar de lo simple a lo complejo gradualmente. Comenzar con formas básicas antes de agregar transformaciones avanzadas.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Revisión 3D</h4>
+                        <p>No confiar solo en renders - revisar modelos 3D directamente para verificar la calidad geométrica.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Uso de Mirror</h4>
+                        <p>Usar Mirror para simetrías en formas irregulares, especialmente útil con polígonos y cuadriláteros.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Análisis de Valores</h4>
+                        <p>Analizar archivo de valores para entender qué configuraciones funcionan mejor y por qué.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Refinamiento Iterativo</h4>
+                        <p>Iterar múltiples veces sobre la misma configuración ajustando parámetros específicos.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Herramientas de Gramática de Formas - Diseño Generativo</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

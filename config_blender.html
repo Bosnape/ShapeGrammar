@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config Blender - Shape Grammar</title>
+    <meta name="description" content="Aprende Shape Grammar desde Blender: metodología de diseño, configuración de salidas, formas primitivas, transformaciones y sistema de reglas.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="top-navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <h1><a href="index.html">3D Shape Grammar</a></h1>
+                </div>
+                <div class="navbar-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="introduccion.html" class="nav-link">Introducción</a>
+                    <a href="config_blender.html" class="nav-link active">Config Blender</a>
+                    <a href="config_json.html" class="nav-link">Config JSON</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <section class="hero-section compact">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Shape Grammar en Blender</h1>
+                <p class="hero-subtitle">
+                    Aprende a usar Shape Grammar desde Blender: metodología de diseño, configuración de salidas, formas primitivas, transformaciones y reglas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Integración con Blender -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Integración con Blender</h2>
+                    <p>Una mirada rápida a cómo tener Shape Grammar integrado y cómo se ve el addon en Blender.</p>
+                </div>
+
+                <div class="blender-integration">
+                    <div class="addon-section">
+                        <h3>Addon de Blender</h3>
+                        <div class="addon-features">
+                            <div class="feature-item">
+                                <h4>Panel de Propiedades</h4>
+                                <p>Panel integrado en las propiedades de cada objeto para configurar directamente las gramáticas de forma.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Instalación Simple</h4>
+                                <p>Descarga el archivo .zip del addon, ve a Edit → Preferences → Add-ons → Install, selecciona el archivo y actívalo.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Integración Directa</h4>
+                                <p>Integración completa en el workflow de modelado sin necesidad de salir de Blender.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="full-width-image-container">
+                        <div class="full-width-image-card">
+                            <img src="assets/images/config_blender/blender_add-on.png" alt="Panel del Addon Shape Grammar en Blender" class="blender-addon-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración de Salidas -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Configuración de Salidas</h2>
+                    <p>Control completo sobre formatos de exportación y parámetros de render en el addon de Blender.</p>
+                </div>
+
+                <div class="output-config-section">
+                    <div class="output-config-card">
+                        <div class="config-image-side">
+                            <img src="assets/images/config_blender/config_salida.png" alt="Configuración de salidas en Blender" class="output-config-image">
+                        </div>
+
+                        <div class="config-explanation-side">
+                            <div class="explanation-section">
+                                <h4>Samples</h4>
+                                <p>Define el número de variaciones que se generarán automáticamente. Es el equivalente al parámetro <code>"samples"</code> en el archivo JSON.</p>
+                            </div>
+
+                            <div class="explanation-section">
+                                <h4>Output</h4>
+                                <p>Controla los formatos de archivo que se exportarán:</p>
+                                <ul>
+                                    <li><strong>Blendfile:</strong> Archivo .blend nativo de Blender</li>
+                                    <li><strong>Values:</strong> Archivo JSON con los valores utilizados en la generación</li>
+                                    <li><strong>STL:</strong> Archivo STL optimizado para impresión 3D</li>
+                                    <li><strong>Render:</strong> Imagen renderizada del producto final</li>
+                                    <li><strong>Mosaic:</strong> Genera un PDF con la imagen de todas las generaciones</li>
+                                </ul>
+                            </div>
+
+                            <div class="explanation-section">
+                                <h4>Render Config</h4>
+                                <p>Configuración avanzada para el renderizado de imágenes:</p>
+                                <ul>
+                                    <li><strong>Render Scene:</strong> Escenas predefinidas (basic, empty, neon, one_light, one_light-top)</li>
+                                    <li><strong>Material:</strong> Materiales disponibles (clay, clay_red, wood_bamboo)</li>
+                                    <li><strong>Quality:</strong> Calidad del render (1-100)</li>
+                                    <li><strong>Resolution:</strong> Resolución en píxeles [ancho, alto]</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración de Shape Grammar -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Configuración de Shape Grammar</h2>
+                    <p>Control detallado sobre formas, transformaciones y reglas para personalizar el comportamiento generativo.</p>
+                </div>
+
+                <div class="output-config-section">
+                    <div class="output-config-card">
+                        <div class="config-image-side">
+                            <img src="assets/images/config_blender/config_shape_grammar.png" alt="Configuración de Shape Grammar en Blender" class="output-config-image">
+                        </div>
+
+                        <div class="config-explanation-side">
+                            <div class="explanation-section">
+                                <h4>General Settings</h4>
+                                <p>Configuración básica que controla el comportamiento general de cada componente:</p>
+                                <ul>
+                                    <li><strong>Number of Transformations:</strong> Número máximo de transformaciones que se pueden aplicar por parte</li>
+                                    <li><strong>Max Number of Forms:</strong> Número máximo de formas primitivas que se pueden seleccionar</li>
+                                    <li><strong>Optional:</strong> Define si la parte aparece aleatoriamente en las generaciones</li>
+                                    <li><strong>Ignore:</strong> Excluye completamente la parte del proceso de generación</li>
+                                </ul>
+                            </div>
+
+                            <div class="explanation-section">
+                                <h4>Forms</h4>
+                                <p>Selección de formas primitivas disponibles para cada componente. Cada forma puede activarse o desactivarse independientemente.</p>
+                            </div>
+
+                            <div class="explanation-section">
+                                <h4>Transformations</h4>
+                                <p>Configuración de las transformaciones que modifican las formas primitivas. Cada transformación incluye parámetros específicos como ejes, factores y valores máximos.</p>
+                            </div>
+
+                            <div class="explanation-section">
+                                <h4>Rules</h4>
+                                <p>Sistema de reglas que controla cuándo y cómo se aplican las transformaciones. Las reglas se encuentran debajo de la sección de Transformations en la interfaz.</p>
+                                <p><strong>Importante:</strong> Las reglas deben escribirse manualmente (no hay botones de selección). Utiliza la sintaxis específica como "twist only_with cube", "bevel always *", o "rotation except sphere".</p>
+                            </div>
+
+                            <div class="explanation-section">
+                                <h4>Nota</h4>
+                                <p><em>Para conocer más sobre las 13 formas primitivas disponibles, las 14 transformaciones y el sistema de reglas (only_with, except, always), puedes consultar las secciones correspondientes en la página de Introducción donde encontrarás explicaciones detalladas y ejemplos prácticos.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Metodología de Diseño -->
+            <section class="methodology-section">
+                <div class="content-header">
+                    <h2>Metodología de Diseño Shape Grammar</h2>
+                    <p>Proceso estructurado de 3 etapas para desarrollar gramáticas de forma efectivas.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Selección de Referencias</h3>
+                        <ul>
+                            <li>Productos relacionados de la misma marca/línea</li>
+                            <li>Productos del usuario objetivo</li>
+                            <li>Productos aspiracionales</li>
+                            <li>Formas del contexto o gustos del usuario</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Desarrollo</h3>
+                        <ul>
+                            <li>Identificar formas y transformaciones en referencias</li>
+                            <li>Identificar elementos comunes</li>
+                            <li>Recrear referencias usando las gramáticas definidas</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Evaluación</h3>
+                        <ul>
+                            <li>Generar diseños consistentes con referencias</li>
+                            <li>Verificar coherencia formal</li>
+                            <li>Iterar y refinar configuraciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ejemplos -->
+            <section class="examples-section">
+                <div class="content-header">
+                    <h2>Casos de Estudio con Blender</h2>
+                    <p>Proyectos prácticos que demuestran la aplicación de Shape Grammar en diseños reales usando Blender.</p>
+                </div>
+
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 1: Botellas de Perfume</h3>
+                        <span class="complexity-badge">Complejidad: Intermedia</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="example-image-container">
+                            <img src="assets/images/config_blender/perfume bottle/perfume_blender.png" alt="Botellas de perfume en Blender" class="example-image">
+                        </div>
+
+                        <div class="case-architecture">
+                            <h4>Arquitectura de Cajas:</h4>
+                            <p>Este ejemplo utiliza una arquitectura de 2 cajas principales para crear botellas de perfume elegantes y variadas:</p>
+                            
+                            <div class="boxes-cards-grid">
+                                <div class="box-card">
+                                    <h5>Bottle (Cuerpo de la botella)</h5>
+                                    <div class="checkbox-section">
+                                        <h6><strong>General Settings:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>Number of Transformations: 2</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>Max Number of Forms: 2</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Forms:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>cube</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>cylinder</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>cube loft (shape: random - max displacement: 0.9 - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>dome cut</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>revolution (factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>polygon (max vertices: 32)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>sphere</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Transformations:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>twist (axes: X, Y y Z - max twist: 0.8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>mirror (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array rotation (max count: 8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>expand (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>contract (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>pull (type: random - factor: 0.9)</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="box-card">
+                                    <h5>Cap (Tapa de la botella)</h5>
+                                    <div class="checkbox-section">
+                                        <h6><strong>General Settings:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>Number of Transformations: 1</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>Max Number of Forms: 1</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Forms:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>cube</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>cylinder</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>dome cut</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>polygon (max vertices: 32)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>sphere</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Transformations:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>twist (axes: X, Y y Z - max twist: 0.8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>rotation (axes: X, Y y Z - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array rotation (max count: 8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>pull (type: random - factor: 0.9)</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-section">
+                            <h4>Algunos Resultados</h4>
+                            <div class="results-gallery">
+                                <img src="assets/images/config_blender/perfume bottle/perfume_bottle1.png" alt="Resultado de botella de perfume 1" class="result-image">
+                                <img src="assets/images/config_blender/perfume bottle/perfume_bottle2.png" alt="Resultado de botella de perfume 2" class="result-image">
+                                <img src="assets/images/config_blender/perfume bottle/perfume_bottle3.png" alt="Resultado de botella de perfume 3" class="result-image">
+                                <img src="assets/images/config_blender/perfume bottle/perfume_bottle4.png" alt="Resultado de botella de perfume 4" class="result-image">
+                                <img src="assets/images/config_blender/perfume bottle/perfume_bottle5.png" alt="Resultado de botella de perfume 5" class="result-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Plantas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 2: Plantas</h3>
+                        <span class="complexity-badge beginner">Complejidad: Principiante</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="example-image-container">
+                            <img src="assets/images/config_blender/plant/plant_blender.png" alt="Plantas en Blender" class="example-image">
+                        </div>
+
+                        <div class="case-architecture">
+                            <h4>Arquitectura de Cajas:</h4>
+                            <p>Este ejemplo utiliza una arquitectura de 1 caja principal para crear plantas variadas y naturales. <strong>Nota:</strong> _plant el cual es una parte fija (no se modifica durante la generación).</p>
+                            
+                            <div class="boxes-cards-grid">
+                                <div class="box-card">
+                                    <h5>Base (Estructura de la planta)</h5>
+                                    <div class="checkbox-section">
+                                        <h6><strong>General Settings:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>Number of Transformations: 3</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>Max Number of Forms: 2</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Forms:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>cube</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>cylinder</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>cube loft (shape: random - max displacement: 0.75 - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>dome cut</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>quadrilateral (axes: X, Y y Z - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>revolution (factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>polygon (max vertices: 32)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>sphere</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Transformations:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>shade (type: random)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>twist (axes: X, Y y Z - max twist: 0.8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>taper (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>bend (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>bevel (factor: 0.9 - max segments: 5)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array rotation (max count: 8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array (axes: X, Y y Z - offset: 1.10 - max count: 8 - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>expand (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>contract (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>pull (type: random - factor: 0.6)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>texture (strength: 0.8 - location: 0.8 - scale: 0.8)</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-section">
+                            <h4>Algunos Resultados</h4>
+                            <div class="results-gallery">
+                                <img src="assets/images/config_blender/plant/plant1.png" alt="Resultado de planta 1" class="result-image">
+                                <img src="assets/images/config_blender/plant/plant2.png" alt="Resultado de planta 2" class="result-image">
+                                <img src="assets/images/config_blender/plant/plant3.png" alt="Resultado de planta 3" class="result-image">
+                                <img src="assets/images/config_blender/plant/plant4.png" alt="Resultado de planta 4" class="result-image">
+                                <img src="assets/images/config_blender/plant/plant5.png" alt="Resultado de planta 5" class="result-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Tazas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 3: Tazas</h3>
+                        <span class="complexity-badge">Complejidad: Intermedia</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="example-image-container">
+                            <img src="assets/images/config_blender/cup/cup_blender.png" alt="Tazas en Blender" class="example-image">
+                        </div>
+
+                        <div class="case-architecture">
+                            <h4>Arquitectura de Cajas:</h4>
+                            <p>Este ejemplo utiliza una arquitectura de 2 cajas principales para crear tazas funcionales y estéticas. <strong>Nota:</strong> En las configuraciones generales, Handle es opcional y por ende puede que no aparezca en algunas generaciones.</p>
+                            
+                            <div class="boxes-cards-grid">
+                                <div class="box-card">
+                                    <h5>Cup (Cuerpo de la taza)</h5>
+                                    <div class="checkbox-section">
+                                        <h6><strong>General Settings:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>Number of Transformations: 2</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>Max Number of Forms: 1</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Forms:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>cylinder</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>cube loft (shape: random - max displacement: 0.75 - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>dome cut</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>quadrilateral (axes: X, Y y Z - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>revolution (factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>polygon (max vertices: 32)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>sphere</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Transformations:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>twist (axes: X, Y y Z - max twist: 0.8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>bevel (factor: 0.9 - max segments: 5)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>mirror (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array rotation (max count: 8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array (Z - offset: 1.10 - max count: 8 - factor: 1)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>pull (type: random - factor: 0.2)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>texture (strength: 0.8 - location: 0.8 - scale: 0.8)</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="box-card">
+                                    <h5>Handle (Asa de la taza)</h5>
+                                    <div class="checkbox-section">
+                                        <h6><strong>General Settings:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>Number of Transformations: 2</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>Max Number of Forms: 1</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>Optional: ✓</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Forms:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>cylinder</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>dome cut</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>revolution (factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>sphere</label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="checkbox-section">
+                                        <h6><strong>Transformations:</strong></h6>
+                                        <ul class="checkbox-list">
+                                            <li><input type="checkbox" checked disabled> <label>twist (axes: X, Y y Z - max twist: 0.8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>bevel (factor: 0.9 - max segments: 5)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>mirror (axes: X, Y y Z)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array rotation (max count: 8)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>array (X, Y y Z - offset: 1.10 - max count: 8 - factor: 0.9)</label></li>
+                                            <li><input type="checkbox" checked disabled> <label>texture (strength: 0.8 - location: 0.8 - scale: 0.8)</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-section">
+                            <h4>Algunos Resultados</h4>
+                            <div class="results-gallery">
+                                <img src="assets/images/config_blender/cup/cup1.png" alt="Resultado de taza 1" class="result-image">
+                                <img src="assets/images/config_blender/cup/cup2.png" alt="Resultado de taza 2" class="result-image">
+                                <img src="assets/images/config_blender/cup/cup3.png" alt="Resultado de taza 3" class="result-image">
+                                <img src="assets/images/config_blender/cup/cup4.png" alt="Resultado de taza 4" class="result-image">
+                                <img src="assets/images/config_blender/cup/cup5.png" alt="Resultado de taza 5" class="result-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Herramientas de Gramática de Formas - Diseño Generativo</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

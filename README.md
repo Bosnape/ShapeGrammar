@@ -8,34 +8,53 @@ Este proyecto contiene una herramienta web para trabajar con gramáticas de form
 
 ```
 ShapeGrammar/
-├── index.html                    ← Página principal
-├── referencia.html               ← Página de referencia
-├── ejemplos.html                 ← Página de ejemplos
-├── documentacion.html            ← Página de documentación
-├── .gitattributes
+├── index.html                    ← Página principal con recursos educativos
+├── introduccion.html             ← Fundamentos de Shape Grammar
+├── config_blender.html           ← Configuración y casos de estudio en Blender
+├── config_json.html              ← Configuración mediante archivos JSON
+├── .gitignore
 ├── assets/
 │   ├── css/
 │   │   └── styles.css            ← Estilos CSS
-│   └─── js/
-│       └── script.js             ← Scripts JavaScript
-├── extra/
-│   ├── extra_documentacion.md    ← Documentación técnica detallada
-│   └── extra_pipeline.md         ← Flujo de trabajo y metodología
+│   ├── js/
+│   │   └── script.js             ← Scripts JavaScript
+│   └── images/                   ← Recursos visuales
+│       ├── introduction/         ← Imágenes de conceptos fundamentales
+│       ├── config_blender/       ← Ejemplos de casos de estudio en Blender
+│       └── config_json/          ← Ejemplos de casos de estudio en JSON
+├── LICENSE                       ← Licencia del software
 └── README.md
 ```
 
 ## Páginas Disponibles
 
-- **index.html**: Página principal del proyecto
-- **referencia.html**: Documentación de referencia
-- **ejemplos.html**: Ejemplos de uso
-- **documentacion.html**: Documentación completa
+- **index.html**: Página principal con recursos educativos y descargas (Interfaz Gráfica, Addon de Blender, CLI)
+- **introduccion.html**: Fundamentos de Shape Grammar: formas primitivas (13 tipos), transformaciones (14 tipos), sistema de reglas y arquitectura de cajas
+- **config_blender.html**: Guía de uso del addon de Blender con metodología de diseño y casos de estudio prácticos
+- **config_json.html**: Configuración mediante archivos JSON con estructura, ejemplos y casos de estudio
 
 ## Cómo usar
 
-1. Abre `index.html` en tu navegador
-2. Navega por las diferentes secciones usando los enlaces
-3. Descarga los recursos desde la sección de descargas
+1. Abre `index.html` en tu navegador para ver la página principal
+2. Navega por las diferentes secciones usando el menú de navegación:
+   - **Introducción**: Aprende los conceptos básicos de Shape Grammar
+   - **Config Blender**: Explora ejemplos y configuraciones usando el addon de Blender
+   - **Config JSON**: Aprende a configurar gramáticas mediante archivos JSON
+3. Descarga las herramientas (addon de Blender, CLI, etc.) desde la sección de descargas en la página principal
+
+## Casos de Estudio
+
+El proyecto incluye varios casos de estudio prácticos:
+
+### En Blender (`config_blender.html`):
+- **Botellas de Perfume** (Complejidad: Intermedia) - Arquitectura de 2 cajas (Bottle, Cap)
+- **Plantas** (Complejidad: Principiante) - Arquitectura de 1 caja (Base)
+- **Tazas** (Complejidad: Intermedia) - Arquitectura de 2 cajas (Cup, Handle opcional)
+
+### En JSON (`config_json.html`):
+- **Botellas** (Complejidad: Intermedia)
+- **Sillas** (Complejidad: Avanzada)
+- **Lámparas** (Complejidad: Principiante)
 
 ## GitHub Pages
 

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config JSON - Shape Grammar</title>
+    <meta name="description" content="Introducción y estructura básica de archivos JSON para configurar proyectos de Shape Grammar.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="top-navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <h1><a href="index.html">3D Shape Grammar</a></h1>
+                </div>
+                <div class="navbar-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="introduccion.html" class="nav-link">Introducción</a>
+                    <a href="config_blender.html" class="nav-link">Config Blender</a>
+                    <a href="config_json.html" class="nav-link active">Config JSON</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Header -->
+    <section class="hero-section compact">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Configuración JSON</h1>
+                <p class="hero-subtitle">
+                    Introducción al formato JSON usado para describir productos, formas, transformaciones y reglas en Shape Grammar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Estructura JSON Básica (movida desde teoria.html) -->
+            <section class="reference-section">
+                <div class="content-header">
+                    <h2>Estructura JSON Básica</h2>
+                    <p>Formato de configuración estándar para definir productos Shape Grammar.</p>
+                </div>
+
+                <div class="code-section">
+                    <pre class="code-block"><code>{
+  "product": "Examples/lamp.blend",
+  "samples": 10,
+  "savepath": "/path/to/output/",
+  "form_detail": {
+    "Base": {
+      "number_transf": 2,
+      "max_number_forms": 2,
+      "optional": false,
+      "forms": {
+        "cube": {"use": true},
+        "cylinder": {"use": false}
+      },
+      "transformations": {
+        "bevel": {"factor": 0.3},
+        "twist": {"axis": "z"}
+      },
+      "rules": [
+        "twist only_with cube"
+      ]
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div class="json-explanation">
+                    <h4>Explicación de campos:</h4>
+                    <ul>
+                        <li><strong>product:</strong> Ruta al archivo .blend base</li>
+                        <li><strong>samples:</strong> Número de variaciones a generar</li>
+                        <li><strong>savepath:</strong> Directorio de salida de los archivos</li>
+                        <li><strong>form_detail:</strong> Configuración por componente del producto</li>
+                        <li><strong>number_transf:</strong> Número máximo de transformaciones por parte</li>
+                        <li><strong>max_number_forms:</strong> Número máximo de formas por parte</li>
+                        <li><strong>optional:</strong> Si la parte es opcional (true/false)</li>
+                        <li><strong>forms:</strong> Formas disponibles y su configuración</li>
+                        <li><strong>transformations:</strong> Transformaciones disponibles y parámetros</li>
+                        <li><strong>rules:</strong> Reglas específicas de aplicación</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Configuración de Salidas -->
+            <section class="documentation-section">
+                <div class="content-header">
+                    <h2>Configuración de Salidas</h2>
+                    <p>Control sobre formatos de exportación y parámetros de render.</p>
+                </div>
+
+                <div class="output-config">
+                    <div class="output-formats">
+                        <h3>Formatos de Salida</h3>
+                        <pre class="code-block"><code>{
+  "output": {
+    "blendfile": false,  // Archivo .blend nativo de Blender
+    "values": true,      // Archivo JSON con valores usados en generación
+    "stl": true,         // Archivo STL para impresión 3D
+    "render": false      // Imagen renderizada del producto
+  }
+}</code></pre>
+                    </div>
+
+                    <div class="render-config">
+                        <h3>Configuración de Render</h3>
+                        <pre class="code-block"><code>{
+  "render_config": {
+    "render_scene": "one_light",     // Escenas: basic, empty, neon, one_light, one_light-top
+    "material": "clay",              // Materiales: clay, clay_red, wood_bamboo
+    "quality": 50,                   // Calidad de render (1-100)
+    "resolution": [400, 400]         // Resolución en píxeles [ancho, alto]
+  }
+}</code></pre>
+                    </div>
+
+                    <div class="output-explanation">
+                        <h4>Explicación de Opciones:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <h5>Escenas de Render:</h5>
+                                <ul>
+                                    <li><strong>basic:</strong> Iluminación simple, fondo neutro</li>
+                                    <li><strong>empty:</strong> Sin luces adicionales</li>
+                                    <li><strong>neon:</strong> Iluminación colorida, ambiente moderno</li>
+                                    <li><strong>one_light:</strong> Una luz principal, sombras suaves</li>
+                                    <li><strong>one_light-top:</strong> Luz cenital, sombras marcadas</li>
+                                </ul>
+                            </div>
+                            <div class="explanation-item">
+                                <h5>Materiales Disponibles:</h5>
+                                <ul>
+                                    <li><strong>clay:</strong> Material cerámico blanco mate</li>
+                                    <li><strong>clay_red:</strong> Material cerámico rojo</li>
+                                    <li><strong>wood_bamboo:</strong> Textura de madera bambú</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Casos de Estudio Detallados -->
+            <section class="examples-section">
+                <div class="content-header">
+                    <h2>Casos de Estudio con JSON</h2>
+                    <p>Ejemplos prácticos con configuraciones específicas y explicaciones paso a paso.</p>
+                </div>
+
+                <!-- Ejemplo 1: Sistema de Lámparas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 1: Sistema de Lámparas</h3>
+                        <span class="complexity-badge">Complejidad: Intermedia</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="case-info">
+                            <div class="case-details">
+                                <h4>Características del Sistema:</h4>
+                                <ul>
+                                    <li><strong>Arquitectura:</strong> 3 partes (Base, Cuerpo, Cabeza)</li>
+                                    <li><strong>Formas principales:</strong> cylinder, cube, sphere</li>
+                                    <li><strong>Transformaciones clave:</strong> bevel, twist, scale</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-config">
+                                <h4>Configuración JSON Específica:</h4>
+                                <pre class="code-block"><code>{
+  "product": "Examples/lamp.blend",
+  "samples": 15,
+  "form_detail": {
+    "Base": {
+      "number_transf": 2,
+      "max_number_forms": 1,
+      "forms": {
+        "cylinder": {"use": true},
+        "cube": {"use": true}
+      },
+      "transformations": {
+        "bevel": {"factor": 0.3},
+        "scale": {"axis": "z", "factor": 0.8}
+      }
+    },
+    "Cuerpo": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "twist": {"axis": "z", "max_twist": 0.5}
+      }
+    },
+    "Cabeza": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "forms": {
+        "sphere": {"use": true},
+        "dome_cut": {"use": true}
+      },
+      "transformations": {
+        "scale": {"axis": "x", "factor": 1.2}
+      }
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-section">
+                        <h4>Algunos Resultados</h4>
+                        <div class="results-gallery">
+                            <img src="assets/images/config_json/lamp/lamp1.png" alt="Resultado de lámpara 1" class="result-image">
+                            <img src="assets/images/config_json/lamp/lamp2.png" alt="Resultado de lámpara 2" class="result-image">
+                            <img src="assets/images/config_json/lamp/lamp3.png" alt="Resultado de lámpara 3" class="result-image">
+                            <img src="assets/images/config_json/lamp/lamp4.png" alt="Resultado de lámpara 4" class="result-image">
+                            <img src="assets/images/config_json/lamp/lamp5.png" alt="Resultado de lámpara 5" class="result-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Colección de Botellas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 2: Colección de Botellas</h3>
+                        <span class="complexity-badge advanced">Complejidad: Avanzada</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="case-info">
+                            <div class="case-details">
+                                <h4>Metodología Aplicada:</h4>
+                                <ul>
+                                    <li><strong>Referencias:</strong> Análisis de botellas existentes</li>
+                                    <li><strong>Formas:</strong> cube_loft, cylinder, revolution</li>
+                                    <li><strong>Transformaciones:</strong> array (texturas), bevel (siempre), pull (solo cilindros)</li>
+                                </ul>
+                                
+                                <h4>Reglas Específicas:</h4>
+                                <ul>
+                                    <li><code>"bevel always *"</code> - Biselado aplicado a todas las formas</li>
+                                    <li><code>"array except cube_loft"</code> - Array excepto en formas loft</li>
+                                    <li><code>"pull only_with cylinder"</code> - Pull solo en cilindros</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-config">
+                                <h4>Configuración con Reglas Avanzadas:</h4>
+                                <pre class="code-block"><code>{
+  "product": "Examples/bottle.blend",
+  "samples": 20,
+  "form_detail": {
+    "Cuerpo": {
+      "number_transf": 3,
+      "max_number_forms": 1,
+      "forms": {
+        "cube_loft": {
+          "shape": "concave", 
+          "max_displacement": 0.5,
+          "factor": 0.3
+        },
+        "cylinder": {"use": true},
+        "revolution": {"factor": 0.4}
+      },
+      "transformations": {
+        "bevel": {"factor": 0.2},
+        "array": {"axis": "z", "max_count": 3},
+        "pull": {"factor": 0.6, "direction": "up"}
+      },
+      "rules": [
+        "bevel always *",
+        "array except cube_loft",
+        "pull only_with cylinder"
+      ]
+    },
+    "Cuello": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "taper": {"axis": "z"}
+      }
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-section">
+                        <h4>Algunos Resultados</h4>
+                        <div class="results-gallery">
+                            <img src="assets/images/config_json/bottle/bottle1.png" alt="Resultado de botella 1" class="result-image">
+                            <img src="assets/images/config_json/bottle/bottle2.png" alt="Resultado de botella 2" class="result-image">
+                            <img src="assets/images/config_json/bottle/bottle3.png" alt="Resultado de botella 3" class="result-image">
+                            <img src="assets/images/config_json/bottle/bottle4.png" alt="Resultado de botella 4" class="result-image">
+                            <img src="assets/images/config_json/bottle/bottle5.png" alt="Resultado de botella 5" class="result-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Serie de Sillas -->
+                <div class="case-study">
+                    <div class="case-header">
+                        <h3>Ejemplo 3: Serie de Sillas</h3>
+                        <span class="complexity-badge">Complejidad: Intermedia</span>
+                    </div>
+                    
+                    <div class="case-content">
+                        <div class="case-info">
+                            <div class="case-details">
+                                <h4>Características Especiales:</h4>
+                                <ul>
+                                    <li><strong>Partes opcionales:</strong> Espaldar configurable</li>
+                                    <li><strong>Patrones:</strong> Modificadores para patas repetidas</li>
+                                    <li><strong>Operaciones booleanas:</strong> Para detalles complejos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-config">
+                                <h4>Configuración con Partes Opcionales:</h4>
+                                <pre class="code-block"><code>{
+  "product": "Examples/chair.blend",
+  "samples": 12,
+  "form_detail": {
+    "Asiento": {
+      "number_transf": 2,
+      "max_number_forms": 1,
+      "optional": false,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "array": {"relative_offset_displace": 0.3, 
+          "max_count": 15, "axis": "x", "scale_factor": 1}
+      }
+    },
+    "Espaldar": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "optional": true,
+      "forms": {
+        "cube": {"use": true}
+      },
+      "transformations": {
+        "contract": {"axis": "x"},
+        "taper": {"axis": "z"}
+      }
+    },
+    "Patas": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "optional": false,
+      "forms": {
+        "cylinder": {"use": true}
+      },
+      "transformations": {
+        "taper": {"axis": "z"}
+      }
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-section">
+                        <h4>Algunos Resultados</h4>
+                        <div class="results-gallery">
+                            <img src="assets/images/config_json/chair/chair1.png" alt="Resultado de silla 1" class="result-image">
+                            <img src="assets/images/config_json/chair/chair2.png" alt="Resultado de silla 2" class="result-image">
+                            <img src="assets/images/config_json/chair/chair3.png" alt="Resultado de silla 3" class="result-image">
+                            <img src="assets/images/config_json/chair/chair4.png" alt="Resultado de silla 4" class="result-image">
+                            <img src="assets/images/config_json/chair/chair5.png" alt="Resultado de silla 5" class="result-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Configuraciones de Ejemplo Rápidas (movido desde ejemplos.html) -->
+            <section class="additional-examples">
+                <div class="content-header">
+                    <h2>Configuraciones de Ejemplo Rápidas</h2>
+                    <p>Configuraciones listas para usar en diferentes tipos de productos.</p>
+                </div>
+
+                <div class="quick-examples-grid">
+                    <div class="quick-example">
+                        <h4>Joyería Básica</h4>
+                        <pre class="mini-code"><code>{
+  "Anillo": {
+    "forms": {"torus": {}},
+    "transformations": {
+      "texture": {"strength_factor": 0.3}
+    }
+  }
+}</code></pre>
+                    </div>
+                    <div class="quick-example">
+                        <h4>Maceta Simple</h4>
+                        <pre class="mini-code"><code>{
+  "Contenedor": {
+    "forms": {"cylinder": {}},
+    "transformations": {
+      "taper": {"axis": "z"},
+      "array": {"axis": "z", "max_count": 2}
+    }
+  }
+}</code></pre>
+                    </div>
+                    <div class="quick-example">
+                        <h4>Vaso/Copa</h4>
+                        <pre class="mini-code"><code>{
+  "Cuerpo": {
+    "forms": {"revolution": {"factor": 0.5}},
+    "transformations": {
+      "bevel": {"factor": 0.2}
+    },
+    "rules": ["bevel always *"]
+  }
+}</code></pre>
+                    </div>
+                    <div class="quick-example">
+                        <h4>Elemento Decorativo</h4>
+                        <pre class="mini-code"><code>{
+  "Forma": {
+    "forms": {"polygon": {"max_vertice": 8}},
+    "transformations": {
+      "twist": {"axis": "z", "max_twist": 1.0},
+      "mirror": {"axis": "x"}
+    }
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración Completa -->
+            <section class="documentation-section">
+              <div class="content-header">
+                  <h2>Configuración Completa de Ejemplo</h2>
+                  <p>Ejemplo integral que demuestra todas las características avanzadas del sistema.</p>
+              </div>
+
+              <div class="complete-config">
+                  <pre class="code-block"><code>{
+  "product": "Examples/advanced_lamp.blend",
+  "samples": 25,
+  "savepath": "/Users/Designer/ShapeGrammar/Output/",
+
+  "output": {
+    "blendfile": true,
+    "values": true,
+    "stl": true,
+    "render": true
+  },
+
+  "render_config": {
+    "render_scene": "one_light",
+    "material": "clay",
+    "quality": 75,
+    "resolution": [800, 800]
+  },
+
+  "form_detail": {
+    "Base": {
+      "number_transf": 3,
+      "max_number_forms": 2,
+      "optional": false,
+      "forms": {
+        "cylinder": {"use": true},
+        "cube": {"use": true},
+        "polygon": {
+          "max_vertice": 8,
+          "use": true
+        }
+      },
+      "transformations": {
+        "bevel": {"factor": 0.4, "max_segments": 5},
+        "scale": {"axis": "z", "factor": 0.8},
+        "twist": {"axis": "z", "max_twist": 0.6},
+        "array_rotation": {"max_count": 6}
+      },
+      "rules": [
+        "bevel always *",
+        "twist only_with cylinder",
+        "array_rotation except polygon"
+      ]
+    },
+    
+    "Cuerpo": {
+      "number_transf": 2,
+      "max_number_forms": 1,
+      "optional": false,
+      "forms": {
+        "cylinder": {"use": true},
+        "cube_loft": {
+          "max_displacement": 0.5,
+          "factor": 0.3,
+          "shape": "convex",
+          "use": true
+        }
+      },
+      "transformations": {
+        "taper": {"axis": "z"},
+        "texture": {
+          "strength_factor": 0.4,
+          "scale_factor": 0.8
+        }
+      },
+      "rules": [
+        "texture only_with cube_loft"
+      ]
+    },
+    
+    "Pantalla": {
+      "number_transf": 1,
+      "max_number_forms": 1,
+      "optional": true,
+      "forms": {
+        "sphere": {"use": true},
+        "dome_cut": {"use": true}
+      },
+      "transformations": {
+        "scale": {"axis": "x", "factor": 1.5}
+      }
+    }
+  }
+}</code></pre>
+              </div>
+          </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Herramientas de Gramática de Formas - Diseño Generativo</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+

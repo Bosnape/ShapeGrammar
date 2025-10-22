@@ -296,7 +296,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--space-xl); /* Espacio progresivo - entre cards relacionadas */
-  margin-bottom: var(--space-4xl); /* Espacio progresivo - gran separación de sección */
+  margin-bottom: 3rem; /* Espacio reducido - separación de sección */
 }
 
 .download-card {
@@ -480,7 +480,7 @@ body {
 
 /* Clean code section */
 .code-section {
-  margin: var(--space-4xl) 0; /* Espacio progresivo - gran separación */
+  margin: 1.5rem 0; /* Espacio reducido */
 }
 
 .code-section h3 {
@@ -780,7 +780,7 @@ html {
 
 /* Estilos para la página de Referencia */
 .reference-section {
-  padding: 3rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-gray-200);
 }
 
@@ -813,6 +813,7 @@ html {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-gray-200);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .reference-card:hover {
@@ -822,13 +823,24 @@ html {
 
 .reference-card h4 {
   font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--primary-green);
-  margin-bottom: 0.75rem;
-  background-color: var(--bg-gray-100);
-  padding: 0.5rem;
-  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+/* Reference image styling with zoom effect */
+.reference-image {
+  width: 100%;
+  height: auto;
+  margin-top: 5rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  object-position: center;
+  max-height: 200px;
+  transform: scale(1.3);
+  transform-origin: center;
+  overflow: visible;
 }
 
 .parametric-grid {
@@ -844,6 +856,7 @@ html {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-gray-200);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .parametric-card:hover {
@@ -905,6 +918,7 @@ html {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-gray-200);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .transformation-card:hover {
@@ -940,6 +954,7 @@ html {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-gray-200);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .rule-card:hover {
@@ -997,7 +1012,7 @@ html {
   padding: 2rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-gray-200);
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .json-explanation h4 {
@@ -1101,6 +1116,44 @@ html {
   box-shadow: var(--shadow-md);
 }
 
+/* Results section for case studies */
+.results-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f5f5f5; /* Gris claro uniforme */
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-gray-200);
+}
+
+.results-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.results-gallery {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: #f5f5f5; /* Mismo gris de fondo */
+}
+
+.result-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform: scale(1.3);
+  transform-origin: center;
+  background-color: transparent; /* Sin fondo en la imagen */
+}
+
 .case-header {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
@@ -1130,16 +1183,22 @@ html {
   white-space: nowrap;
 }
 
-.complexity-badge.advanced {
-  background-color: var(--accent-lime);
+.complexity-badge.beginner {
+  background-color: #7ED957;
   color: var(--text-primary);
-  border-color: var(--accent-lime);
+  border-color: #7ED957;
 }
 
-.complexity-badge.expert {
-  background-color: #ef4444;
-  color: var(--text-white);
-  border-color: #ef4444;
+.complexity-badge {
+  background-color: #FFD93D;
+  color: var(--text-primary);
+  border-color: #FFD93D;
+}
+
+.complexity-badge.advanced {
+  background-color: #FF8C42;
+  color: var(--text-primary);
+  border-color: #FF8C42;
 }
 
 .case-info {
@@ -1431,6 +1490,17 @@ html {
   margin-bottom: 1rem;
 }
 
+.box-step-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .advanced-config h3 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -1575,6 +1645,30 @@ html {
 
 .workflow-section {
   margin-top: 2.5rem;
+}
+
+/* Full-width image card for Blender addon screenshot */
+.full-width-image-container {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.full-width-image-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.blender-addon-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  display: block;
+  max-width: 100%;
 }
 
 .workflow-section h3 {
@@ -2044,4 +2138,344 @@ html {
 .workflow-step,
 .capability-card {
   will-change: transform;
+}
+
+/* Output configuration section styles */
+.output-config-section {
+  margin-top: 2rem;
+}
+
+.output-config-card {
+  display: flex;
+  gap: 2rem;
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.output-config-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.config-image-side {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.output-config-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.config-explanation-side {
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.explanation-section {
+  margin-bottom: 1.5rem;
+}
+
+.explanation-section:last-child {
+  margin-bottom: 0;
+}
+
+.explanation-section h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 0.75rem;
+}
+
+.explanation-section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.explanation-section ul {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+}
+
+.explanation-section li {
+  margin-bottom: 0.5rem;
+}
+
+.explanation-section strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Mobile responsive adjustments for output config */
+@media (max-width: 768px) {
+  .output-config-card {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .config-image-side {
+    flex: none;
+  }
+
+  .config-explanation-side {
+    padding-left: 0;
+  }
+
+  .explanation-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .explanation-section h4 {
+    font-size: 1rem;
+  }
+}
+
+/* Checkbox section styles for examples */
+.checkbox-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--bg-gray-50);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-md);
+}
+
+.checkbox-section h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 0.75rem;
+}
+
+.checkbox-section h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+}
+
+.checkbox-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-green);
+  cursor: not-allowed;
+}
+
+.checkbox-item label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  line-height: 1.4;
+}
+
+.checkbox-item label strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Case architecture section - full width */
+.case-architecture {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* CAMBIO #4: Centrar y mejorar jerarquía del título */
+.case-architecture h4 {
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* CAMBIO #4: Centrar descripción y limitar ancho */
+.case-architecture p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Boxes cards grid for side-by-side layout */
+.boxes-cards-grid {
+  display: flex;
+  justify-content: center; /* CAMBIO #1: Centrar cards */
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.box-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  flex: 0 0 380px;
+  max-width: 380px;
+}
+
+.box-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.box-card h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  text-align: center;
+  padding-bottom: 0.75rem; /* CAMBIO #3: Padding inferior */
+  border-bottom: 2px solid var(--primary-green); /* CAMBIO #3: Línea inferior */
+}
+
+.checkbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 1rem;
+}
+
+.checkbox-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.checkbox-list input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--primary-green);
+  cursor: not-allowed;
+  appearance: none;
+  border: 2px solid var(--border-gray-300);
+  border-radius: 3px;
+  background-color: var(--bg-white);
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-list input[type="checkbox"]:checked {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+.checkbox-list input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.checkbox-list label {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  cursor: not-allowed;
+  flex: 1;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* Mobile responsive for checkbox sections */
+@media (max-width: 768px) {
+  .boxes-cards-grid {
+    flex-direction: column;
+    align-items: center; /* CAMBIO #1: Centrar en móvil también */
+    gap: 1.5rem;
+  }
+  
+  .box-card {
+    padding: 1.25rem;
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .checkbox-section {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .checkbox-section h5 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .checkbox-item label {
+    font-size: 0.85rem;
+  }
+  
+  .box-card h5 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .checkbox-section h6 {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .checkbox-list {
+    margin: 0.4rem 0 0 0.8rem;
+  }
+}
+
+/* Example image container styles */
+.example-image-container {
+  margin: 2rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.example-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  object-fit: contain;
+}
+
+/* Mobile responsive for example images */
+@media (max-width: 768px) {
+  .example-image-container {
+    margin: 1.5rem 0;
+  }
+  
+  .example-image {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
 }
